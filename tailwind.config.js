@@ -15,6 +15,7 @@ export default {
         'card-bg': '#F0EEED',
         'text-o': 'rgba(0, 0, 0, .6)',
         'border-10': 'rgba(0, 0, 0, .1)',
+        'price-30': 'rgba(0, 0, 0, .3)',
       },
     },
   },

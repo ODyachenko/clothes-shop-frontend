@@ -18,7 +18,7 @@ export type HeaderStatsType = {
 };
 
 export type BtnPropsType = {
-  value: string;
+  value: string | number;
   className?: string;
   handler?: () => void;
 };
@@ -49,3 +49,16 @@ export type SocialType = {
   path: string;
   icon: React.ReactNode;
 };
+
+export type CounterType = {
+  state: number;
+  setState: (state: number) => void;
+};
+
+export type ProductSizeType = {
+  id: number;
+  value: string;
+};
+
+export type ProductColorsType = ProductSizeType;
+export type ProductTabType = ProductSizeType;
