@@ -27,7 +27,7 @@ const settings = {
 
 const ReviewsList: FC = () => {
   return (
-    <ul className="reviews__list">
+    <ul className="reviews__list slider-container">
       <Slider {...settings}>
         {reviewsList.map((review) => (
           <ReviewsListItem key={review.id} {...review} />

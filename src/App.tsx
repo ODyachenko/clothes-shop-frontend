@@ -1,13 +1,9 @@
-import Nav from './components/Navbar/Nav';
-import Main from './components/Main/Main';
-import Footer from './components/Footer/Footer';
+import Homepage from './pages/Homepage';
 
 function App() {
   return (
     <>
-      <Nav />
-      <Main />
-      <Footer />
+      <Homepage />
     </>
   );
 }

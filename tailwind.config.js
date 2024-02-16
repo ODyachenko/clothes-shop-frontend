@@ -17,9 +17,6 @@ export default {
         'border-10': 'rgba(0, 0, 0, .1)',
       },
     },
-    borderRadius: {
-      'circle-o': '50%',
-    },
   },
   plugins: [],
 };

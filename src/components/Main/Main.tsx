@@ -12,7 +12,7 @@ const Main: FC = () => {
       <Header />
       <Banner />
       <Advertising
-        className="border-b border-gray-100"
+        className="border-b-2 border-gray-100 border-solid"
         title="NEW ARRIVALS"
         productsList={productsList}
       />
