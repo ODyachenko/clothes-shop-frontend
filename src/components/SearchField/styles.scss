@@ -1,0 +1,17 @@
+.search {
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    width: 21px;
+    height: 21px;
+    background: url('../../assets/img/search.svg') no-repeat, center/contain;
+
+    position: absolute;
+    top: 0;
+    left: 18px;
+    bottom: 0;
+    margin: auto;
+  }
+}
