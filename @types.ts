@@ -43,3 +43,9 @@ export type ReviewType = {
   rating: number;
   review: string;
 };
+
+export type SocialType = {
+  id: number;
+  path: string;
+  icon: React.ReactNode;
+};
