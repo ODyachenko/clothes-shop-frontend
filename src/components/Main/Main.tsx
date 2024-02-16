@@ -4,6 +4,7 @@ import Banner from '../Banner/Banner';
 import Header from '../Header/Header';
 import { productsList } from '../../data/productsList';
 import Browse from '../Browse/Browse';
+import Reviews from '../Reviews/Reviews';
 
 const Main: FC = () => {
   return (
@@ -17,6 +18,7 @@ const Main: FC = () => {
       />
       <Advertising title="TOP SELLING" productsList={productsList} />
       <Browse />
+      <Reviews />
     </main>
   );
 };

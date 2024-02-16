@@ -9,7 +9,7 @@ const Header: FC = () => {
     <header className="header bg-header-bg pt-10 lg:pt-24">
       <div className="container sm:flex">
         <div className="header__content">
-          <h1 className="header__title text-4xl mb-5 lg:text-4xl lg:mb-8">
+          <h1 className="header__title font-integral text-3xl mb-5 lg:text-4xl lg:mb-8">
             FIND CLOTHES THAT MATCHES YOUR STYLE
           </h1>
           <p className="header__text mb-6 leading-snug lg:mb-8">

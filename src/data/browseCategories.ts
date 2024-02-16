@@ -4,21 +4,21 @@ export const browseCategories: ImageType[] = [
   {
     id: 1,
     name: 'Casual',
-    path: '../../assets/img/casual.png',
-  },
-  {
-    id: 2,
-    name: 'Formal',
-    path: '../../assets/img/formal.png',
-  },
-  {
-    id: 3,
-    name: 'Party',
-    path: '../../assets/img/party.png',
+    path: require('../assets/img/casual.jpg'),
   },
   {
     id: 4,
     name: 'Gym',
-    path: '../../assets/img/gym.png',
+    path: require('../assets/img/gym.png'),
+  },
+  {
+    id: 2,
+    name: 'Formal',
+    path: require('../assets/img/formal.jpg'),
+  },
+  {
+    id: 3,
+    name: 'Party',
+    path: require('../assets/img/party.jpg'),
   },
 ];

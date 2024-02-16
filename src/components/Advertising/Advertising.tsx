@@ -16,7 +16,9 @@ const Advertising: FC<AdvertisingProps> = ({
 }) => {
   return (
     <Wrapper className={`advertising ${className}`}>
-      <h2 className="advertising__title title text-center mb-8">{title}</h2>
+      <h2 className="advertising__title title text-center mb-8 lg:mb-16">
+        {title}
+      </h2>
       <CardsList productsList={productsList} />
     </Wrapper>
   );

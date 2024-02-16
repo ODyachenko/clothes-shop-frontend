@@ -36,3 +36,10 @@ export type ProductType = {
   rating: number;
   price: number;
 };
+
+export type ReviewType = {
+  id: number;
+  user: string;
+  rating: number;
+  review: string;
+};
