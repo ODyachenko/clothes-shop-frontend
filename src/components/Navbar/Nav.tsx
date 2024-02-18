@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
 import SearchField from '../SearchField/SearchField';
 import NavList from './NavList';
-import './styles.scss';
 
 const Nav: FC = () => {
   return (
     <nav className="nav py-6 border-b border-solid border-border-10">
       <div className="nav__wrapper container flex justify-between items-center gap-6">
-        <span className="nav__brand text-3xl font-bold">SHOP.CO</span>
+        <span className="nav__brand font-integral text-3xl font-bold">
+          SHOP.CO
+        </span>
         <NavList />
         <SearchField />
         <a href="">

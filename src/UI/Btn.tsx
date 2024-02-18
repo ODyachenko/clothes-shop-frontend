@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { BtnPropsType } from '../../../@types';
+import { BtnPropsType } from '../../@types';
 
 const Btn: FC<BtnPropsType> = ({ value, className, handler }) => {
   return (

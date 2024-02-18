@@ -1,5 +1,5 @@
 import React from 'react';
-import Btn from '../../UI/Btn/Btn';
+import Btn from '../../UI/Btn';
 import FilterBtn from '../../UI/FilterBtn';
 import ReviewsList from '../Reviews/ReviewsList';
 

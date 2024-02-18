@@ -3,7 +3,7 @@ import SocialsList from './SocialsList';
 
 const Footer: FC = () => {
   return (
-    <footer className="footer bg-header-bg py-10 lg:py-24">
+    <footer className="footer bg-header-bg py-10 lg:py-16">
       <div className="container">
         <h2 className="footer__brand title text-center font-bold mb-4 lg:mb-6">
           SHOP.CO

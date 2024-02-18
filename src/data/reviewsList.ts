@@ -13,20 +13,20 @@ export const reviewsList: ReviewType[] = [
     user: 'Alex K.',
     review:
       'Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.',
-    rating: 4,
+    rating: 3.4,
   },
   {
     id: 3,
     user: 'James L.',
     review:
       "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
-    rating: 5,
+    rating: 2.2,
   },
   {
     id: 4,
     user: 'Mooen M.',
     review:
       "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
-    rating: 5,
+    rating: 4.5,
   },
 ];

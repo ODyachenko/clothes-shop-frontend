@@ -4,7 +4,7 @@ import BrowsListItem from './BrowsListItem';
 
 const BrowseList: FC = () => {
   return (
-    <ul className="browse_list md:flex md:flex-wrap md:justify-center md:gap-5">
+    <ul className="browse_list md:flex md:flex-wrap md:justify-between md:gap-5">
       {browseCategories.map((category) => (
         <BrowsListItem key={category.id} {...category} />
       ))}

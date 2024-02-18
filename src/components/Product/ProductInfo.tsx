@@ -1,5 +1,5 @@
 import React from 'react';
-import Btn from '../../UI/Btn/Btn';
+import Btn from '../../UI/Btn';
 import Counter from '../../UI/Counter';
 import Rating from '../Rating/Rating';
 import ProductColors from './ProductColors';
