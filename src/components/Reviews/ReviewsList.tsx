@@ -1,39 +1,18 @@
 import React, { FC } from 'react';
-import Slider from 'react-slick';
 import { reviewsList } from '../../data/reviewsList';
+import SecondaryBtn from '../../UI/SecondaryBtn';
 import ReviewsListItem from './ReviewsListItem';
-
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
-};
 
 const ReviewsList: FC = () => {
   return (
-    <ul className="reviews__list slider-container">
-      <Slider {...settings}>
+    <>
+      <ul className="reviews__list grid grid-cols-2 gap-5 mb-5 lg:mb-9">
         {reviewsList.map((review) => (
           <ReviewsListItem key={review.id} {...review} />
         ))}
-      </Slider>
-    </ul>
+      </ul>
+      <SecondaryBtn value="Load More Reviews" className="mx-auto" />
+    </>
   );
 };
 

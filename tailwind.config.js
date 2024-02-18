@@ -10,6 +10,8 @@ export default {
         'half-sp': 'calc(50% - 10px)',
         'card-1-lg': '410px',
         'card-2-lg': 'calc(50% - 420px)',
+        'w-600': '600px',
+        'w-gallery': 'calc(100% - 640px)',
       },
       colors: {
         'search-bg': '#F0F0F0',

@@ -5,8 +5,6 @@ import ProductInfo from '../components/Product/ProductInfo';
 import ProductReviews from '../components/Product/ProductReviews';
 import ProductTabs from '../components/Product/ProductTabs/ProductTabs';
 import Recommendations from '../components/Recommendations/Recommendations';
-import Counter from '../UI/Counter';
-import OptionBtn from '../UI/OptionBtn';
 
 const ProductPage: FC = () => {
   return (

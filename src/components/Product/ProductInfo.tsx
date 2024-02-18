@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Btn from '../../UI/Btn';
 import Counter from '../../UI/Counter';
 import Rating from '../Rating/Rating';
 import ProductColors from './ProductColors';
 import ProductSizes from './ProductSizes';
 
-const ProductInfo = () => {
+const ProductInfo: FC = () => {
   return (
-    <div className="product__info">
+    <div className="product__info max-w-w-600">
       <h1 className="product__title font-integral text-2xl lg:text-3xl xl:text-4xl font-bold mb-3">
         One Life Graphic T-shirt
       </h1>
@@ -28,7 +28,7 @@ const ProductInfo = () => {
       <ProductSizes />
       <div className="flex items-center gap-5 mb-12">
         <Counter state={0} setState={(value) => false} />
-        <Btn value="Add to Cart" />
+        <Btn value="Add to Cart" className="w-full" />
       </div>
     </div>
   );

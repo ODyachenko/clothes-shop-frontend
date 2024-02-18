@@ -3,7 +3,7 @@ import product from '../../assets/img/product.png';
 
 const ProductGalery = () => {
   return (
-    <div className="product__gallery gallery flex flex-col-reverse gap-3 mb-5 sm:flex-row lg:flex-shrink-0 lg:m-0">
+    <div className="product__gallery gallery flex flex-col-reverse gap-3 mb-5 sm:flex-row lg:flex-shrink-0 lg:m-0 lg:w-w-gallery">
       <div className="gallery__col flex gap-3 sm:flex-col">
         <picture className="gallery__thumbnail rounded-3xl max-w-36">
           <img className="rounded-3xl" src={product} alt="" />

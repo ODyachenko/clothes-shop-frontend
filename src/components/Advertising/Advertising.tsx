@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { ProductType } from '../../../@types';
 import CardsList from '../Cards/CardsList';
 import CardsSlider from '../Cards/CardsSlider';
@@ -16,16 +16,15 @@ const Advertising: FC<AdvertisingProps> = ({
   productsList,
 }) => {
   const [width, setWidth] = useState<number>(0);
-  const sliderRef = useRef<boolean>(true);
 
   useEffect(() => {
+    setWidth(window.innerWidth);
+
     const handlerResize = () => {
       setWidth(window.innerWidth);
     };
 
     window.addEventListener('resize', handlerResize);
-
-    width >= 1023 ? (sliderRef.current = false) : (sliderRef.current = true);
 
     return () => {
       window.removeEventListener('resize', handlerResize);
@@ -37,7 +36,7 @@ const Advertising: FC<AdvertisingProps> = ({
       <h2 className="advertising__title title text-center mb-8 lg:mb-16">
         {title}
       </h2>
-      {sliderRef.current ? (
+      {width < 1024 ? (
         <CardsSlider productsList={productsList} />
       ) : (
         <CardsList productsList={productsList} />
