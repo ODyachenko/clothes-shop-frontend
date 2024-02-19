@@ -8,10 +8,10 @@ type RatingPropsType = {
 const Rating: FC<RatingPropsType> = ({ value, className }) => {
   return (
     <div className={`${className} flex items-center gap-3`}>
-      <figure style={{ width: value * 27.8 }} className=" overflow-hidden">
+      <figure style={{ width: value * 19.8 }} className=" overflow-hidden">
         <svg
-          width="139"
-          height="23"
+          width="99"
+          height="18"
           viewBox="0 0 139 23"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

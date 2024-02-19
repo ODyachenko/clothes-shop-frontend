@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { ProductType } from '../../../@types';
+import SecondaryBtn from '../../UI/SecondaryBtn';
 import CardsList from '../Cards/CardsList';
 import CardsSlider from '../Cards/CardsSlider';
 import { Wrapper } from '../Wrapper/Wrapper';
@@ -39,7 +40,11 @@ const Advertising: FC<AdvertisingProps> = ({
       {width < 1024 ? (
         <CardsSlider productsList={productsList} />
       ) : (
-        <CardsList productsList={productsList} />
+        <CardsList
+          productsList={productsList}
+          className="grid gap-5 grid-cols-4"
+          element={<SecondaryBtn value="View All" className="w-56 mx-auto" />}
+        />
       )}
     </Wrapper>
   );

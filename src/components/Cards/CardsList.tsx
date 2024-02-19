@@ -6,17 +6,19 @@ import CardsItem from './CardsItem';
 
 type CardListProps = {
   productsList: ProductType[];
+  className?: string;
+  element?: React.ReactNode;
 };
 
-const CardsList: FC<CardListProps> = ({ productsList }) => {
+const CardsList: FC<CardListProps> = ({ productsList, className, element }) => {
   return (
     <>
-      <div className="cards__list grid grid-rows-1 grid-cols-4 gap-5 mb-9">
+      <div className={`cards__list mb-9 ${className}`}>
         {productsList.map((prod) => (
           <CardsItem key={prod.id} {...prod} />
         ))}
       </div>
-      <SecondaryBtn value="View All" className="w-56 mx-auto" />
+      {element}
     </>
   );
 };

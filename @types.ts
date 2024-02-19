@@ -23,6 +23,11 @@ export type BtnPropsType = {
   handler?: () => void;
 };
 
+export type ChevronType = {
+  className?: string;
+  handler?: () => void;
+};
+
 export type ImageType = {
   id: number;
   path: string;
@@ -55,6 +60,19 @@ export type CounterType = {
   setState: (state: number) => void;
 };
 
+export type PriceValueType = {
+  min: number;
+  max: number;
+};
+
+export type RangeSliderType = {
+  min: number;
+  max: number;
+  value: any;
+  step: number;
+  onChange: (obj: PriceValueType) => void;
+};
+
 export type ProductSizeType = {
   id: number;
   value: string;
@@ -62,3 +80,5 @@ export type ProductSizeType = {
 
 export type ProductColorsType = ProductSizeType;
 export type ProductTabType = ProductSizeType;
+export type FiltersType = ProductSizeType;
+export type SortingType = ProductSizeType;

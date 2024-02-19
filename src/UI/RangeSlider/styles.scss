@@ -1,0 +1,119 @@
+$thumb-size: 20px;
+
+@mixin track-styles {
+  appearance: none;
+  background: transparent;
+  border: transparent;
+}
+
+@mixin thumb-styles {
+  appearance: none;
+  pointer-events: all;
+  width: $thumb-size;
+  height: $thumb-size;
+  border-radius: 0px;
+  border: 0 none;
+  cursor: grab;
+  background-color: red;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.range {
+  position: relative;
+  width: calc(100% - 30px);
+  height: calc(#{$thumb-size} + 1.6rem);
+  display: flex;
+  align-items: center;
+
+  margin: 0 auto 18px;
+}
+
+.input-wrapper {
+  width: calc(100% + #{$thumb-size});
+  margin: 0 calc(#{$thumb-size} / -2);
+  position: absolute;
+  height: $thumb-size;
+}
+
+.control-wrapper {
+  width: 100%;
+  position: absolute;
+  height: $thumb-size;
+}
+
+.input {
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+  appearance: none;
+  height: 100%;
+  opacity: 0;
+  z-index: 3;
+  padding: 0;
+
+  &::-ms-track {
+    @include track-styles;
+  }
+
+  &::-moz-range-track {
+    @include track-styles;
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    @include track-styles;
+  }
+
+  &::-ms-thumb {
+    @include thumb-styles;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb-styles;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb-styles;
+  }
+}
+
+.rail {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 6px;
+  border-radius: 3px;
+  background: #f0f0f0;
+}
+
+.inner-rail {
+  position: absolute;
+  height: 100%;
+  background: #000;
+}
+
+.control {
+  width: $thumb-size;
+  height: $thumb-size;
+  border-radius: 50%;
+  position: absolute;
+  background: #000;
+  top: 50%;
+  margin-left: calc(#{$thumb-size} / -2);
+  transform: translate3d(0, -50%, 0);
+  z-index: 2;
+
+  &-value {
+    font-size: 14px;
+    position: absolute;
+    bottom: -30px;
+  }
+  &:last-child {
+    .control-value {
+      left: -10px;
+    }
+  }
+}

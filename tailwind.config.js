@@ -12,6 +12,8 @@ export default {
         'card-2-lg': 'calc(50% - 420px)',
         'w-600': '600px',
         'w-gallery': 'calc(100% - 640px)',
+        'sidebar-h': 'calc(100vh - 100px)',
+        'sidebar-w': '295px',
       },
       colors: {
         'search-bg': '#F0F0F0',
@@ -20,6 +22,8 @@ export default {
         'text-o': 'rgba(0, 0, 0, .6)',
         'border-10': 'rgba(0, 0, 0, .1)',
         'price-30': 'rgba(0, 0, 0, .3)',
+        'pagin-color': 'rgba(0, 0, 0, .5)',
+        'pagin-page': 'rgba(0, 0, 0, .06)',
       },
     },
   },
