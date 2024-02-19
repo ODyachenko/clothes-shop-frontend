@@ -10,7 +10,7 @@ const Counter: FC<CounterType> = ({ state, setState }) => {
       >
         -
       </button>
-      <span className="counter__value font-bold">{state ? state : 0}</span>
+      <span className="counter__value font-bold w-4">{state ? state : 0}</span>
       <button
         onClick={() => setState(state + 1)}
         className="counter__btn text-xl font-bold"

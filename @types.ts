@@ -41,6 +41,15 @@ export type ProductType = {
   rating: number;
   price: number;
 };
+export type CartType = {
+  id: number;
+  img: string;
+  name: string;
+  size: string;
+  color: string;
+  price: number;
+  quantity: number;
+};
 
 export type ReviewType = {
   id: number;
