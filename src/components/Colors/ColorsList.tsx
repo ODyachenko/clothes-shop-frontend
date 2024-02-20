@@ -8,7 +8,7 @@ type ColorsListProps = {
 
 const ColorsList: FC<ColorsListProps> = ({ colors }) => {
   return (
-    <ul className="colors__list flex flex-wrap gap-5">
+    <ul className="colors__list flex flex-wrap gap-4">
       {colors.map((color) => (
         <ColorsListItem key={color.id} {...color} />
       ))}

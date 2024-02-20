@@ -4,7 +4,7 @@ import NavListItem from './NavListItem';
 
 const NavList: FC = () => {
   return (
-    <ul className="nav__list flex items-center gap-6">
+    <ul className="nav__list flex-shrink-0 flex flex-col gap-5 lg:gap-6 lg:flex-row lg:items-center ">
       {navLinks.map((link) => (
         <NavListItem key={link.id} {...link} />
       ))}

@@ -10,6 +10,7 @@ export default {
         'half-sp': 'calc(50% - 10px)',
         'card-1-lg': '410px',
         'card-2-lg': 'calc(50% - 420px)',
+        'search-field': '580px',
         'w-600': '600px',
         'w-gallery': 'calc(100% - 640px)',
         'sidebar-h': 'calc(100vh - 100px)',
@@ -25,6 +26,9 @@ export default {
         'price-30': 'rgba(0, 0, 0, .3)',
         'pagin-color': 'rgba(0, 0, 0, .5)',
         'pagin-page': 'rgba(0, 0, 0, .06)',
+      },
+      boxShadow: {
+        'card-shadow': 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
       },
     },
   },

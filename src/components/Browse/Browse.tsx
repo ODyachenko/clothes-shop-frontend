@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Wrapper } from '../Wrapper/Wrapper';
 import BrowseList from './BrowseList';
+import './styles.scss';
 
 const Browse: FC = () => {
   return (

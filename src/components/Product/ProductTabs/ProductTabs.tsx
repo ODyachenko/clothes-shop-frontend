@@ -4,7 +4,7 @@ import ProductTabsItem from './ProductTabsItem';
 
 const ProductTabs: FC = () => {
   return (
-    <ul className="product__tabs flex gap-11 mb-5 border-b border-solid border-border-10 overflow-x-auto pb-5">
+    <ul className="product__tabs grid grid-cols-3 mb-5 border-b border-solid border-border-10 text-center lg:text-xl">
       {productTabs.map((tab) => (
         <ProductTabsItem key={tab.id} {...tab} />
       ))}

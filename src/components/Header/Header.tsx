@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 import Btn from '../../UI/Btn';
 import HeaderStats from './HeaderStats';
 import headerImg_mob from '../../assets/img/header_mob.png';
@@ -17,10 +18,13 @@ const Header: FC = () => {
             designed to bring out your individuality and cater to your sense of
             style.
           </p>
-          <Btn
-            className="mb-5 w-52 mx-auto md:mx-0 md:max-w-52 lg:mb-12"
-            value="Shop Now"
-          />
+          <Link to={'/products'}>
+            <Btn
+              className="mb-5 w-52 mx-auto md:mx-0 md:max-w-52 lg:mb-14"
+              value="Shop Now"
+            />
+          </Link>
+
           <HeaderStats />
         </div>
         <picture className="max-w-80 self-end shrink-0 md:max-w-96 lg:max-w-full">

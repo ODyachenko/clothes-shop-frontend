@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
+import Gallery from '../components/Gallery/Gallery';
 import Layout from '../components/Layout/Layout';
-import ProductGalery from '../components/Product/ProductGalery';
 import ProductInfo from '../components/Product/ProductInfo';
 import ProductReviews from '../components/Product/ProductReviews';
 import ProductTabs from '../components/Product/ProductTabs/ProductTabs';
@@ -12,7 +12,7 @@ const ProductPage: FC = () => {
       <main className="main pt-6">
         <div className="container">
           <div className="product__inner lg:flex lg:gap-10 lg:mb-14">
-            <ProductGalery />
+            <Gallery />
             <ProductInfo />
           </div>
           <ProductTabs />

@@ -9,7 +9,7 @@ export const browseCategories: ImageType[] = [
   {
     id: 4,
     name: 'Gym',
-    path: require('../assets/img/gym.png'),
+    path: require('../assets/img/gym.jpg'),
   },
   {
     id: 2,

@@ -4,7 +4,7 @@ import BannerItem from './BannerItem';
 
 const BannerList = () => {
   return (
-    <ul className="banner__list flex items-center justify-between">
+    <ul className="banner__list flex items-center justify-between gap-8 overflow-auto">
       {brandsList.map((brand) => (
         <BannerItem key={brand.id} {...brand} />
       ))}

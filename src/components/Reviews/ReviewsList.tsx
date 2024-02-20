@@ -6,7 +6,7 @@ import ReviewsListItem from './ReviewsListItem';
 const ReviewsList: FC = () => {
   return (
     <>
-      <ul className="reviews__list grid grid-cols-2 gap-5 mb-5 lg:mb-9">
+      <ul className="reviews__list grid grid-cols-1 gap-5 mb-5 sm:grid-cols-2 lg:mb-9">
         {reviewsList.map((review) => (
           <ReviewsListItem key={review.id} {...review} />
         ))}

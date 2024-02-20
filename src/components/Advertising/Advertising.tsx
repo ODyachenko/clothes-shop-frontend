@@ -34,7 +34,7 @@ const Advertising: FC<AdvertisingProps> = ({
 
   return (
     <Wrapper className={`advertising ${className}`}>
-      <h2 className="advertising__title title text-center mb-8 lg:mb-16">
+      <h2 className="advertising__title title text-center mb-8 sm:text-left lg:text-center lg:mb-16">
         {title}
       </h2>
       {width < 1024 ? (

@@ -1,0 +1,24 @@
+@media (min-width: 1280px) {
+  .browse {
+    &__list {
+      &-item {
+        &:nth-child(1) {
+          width: 407px;
+          order: 1;
+        }
+        &:nth-child(2) {
+          width: 407px;
+          order: 4;
+        }
+        &:nth-child(3) {
+          width: calc(100% - 427px);
+          order: 2;
+        }
+        &:nth-child(4) {
+          width: calc(100% - 427px);
+          order: 3;
+        }
+      }
+    }
+  }
+}
