@@ -20,6 +20,7 @@ export type HeaderStatsType = {
 export type BtnPropsType = {
   value: string | number;
   className?: string;
+  type?: 'button' | 'submit';
   handler?: () => void;
 };
 
@@ -80,6 +81,13 @@ export type RangeSliderType = {
   value: any;
   step: number;
   onChange: (obj: PriceValueType) => void;
+};
+
+export type FieldType = {
+  type: 'text' | 'password' | 'email';
+  label?: string;
+  placeholder: string;
+  className?: string;
 };
 
 export type ProductSizeType = {

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import SearchField from '../SearchField/SearchField';
+import SearchField from '../../UI/SearchField/SearchField';
 import Burger from './Burger';
 import NavList from './NavList';
 import './styles.scss';
