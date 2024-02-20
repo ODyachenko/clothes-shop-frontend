@@ -88,6 +88,9 @@ export type FieldType = {
   label?: string;
   placeholder: string;
   className?: string;
+  register?: any;
+  errors?: any;
+  name: string;
 };
 
 export type ProductSizeType = {
