@@ -18,9 +18,11 @@ export type HeaderStatsType = {
 };
 
 export type BtnPropsType = {
+  id?: number;
   value: string | number;
   className?: string;
   type?: 'button' | 'submit';
+  state?: number;
   handler?: () => void;
 };
 
