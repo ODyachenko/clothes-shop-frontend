@@ -3,7 +3,7 @@ import { productTabs } from '../../../data/productTabs';
 import ProductTabsItem from './ProductTabsItem';
 
 const ProductTabs: FC = () => {
-  const [isActive, setIsActive] = useState<number>(1);
+  const [isActive, setIsActive] = useState<number>(2);
 
   return (
     <ul className="product__tabs grid grid-cols-3 mb-5 text-center lg:text-xl">

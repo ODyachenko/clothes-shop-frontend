@@ -4,16 +4,17 @@ import { productsImages } from '../../data/productsImages';
 type GalleryListProps = {
   img: string;
   idx: number;
-  handler: (value: string) => void;
+  imgIdx: number;
+  handler: (idx: number) => void;
 };
 
-const GalleryImg: FC<GalleryListProps> = ({ img, idx, handler }) => {
+const GalleryImg: FC<GalleryListProps> = ({ img, idx, imgIdx, handler }) => {
   return (
     <picture
-      onMouseOver={() => handler(img)}
-      className={`gallery__thumbnail rounded-3xl max-w-36 border-2 border-solid border-transparent hover:border-black cursor-pointer ${
-        img === productsImages[idx] ? 'border-black' : ''
-      }`}
+      onMouseOver={() => handler(idx)}
+      className={`gallery__thumbnail rounded-3xl max-w-36 border-2 border-solid 
+       hover:border-black cursor-pointer 
+      ${idx === imgIdx ? 'border-black' : 'border-transparent'}`}
     >
       <img className="rounded-3xl" src={img} alt="" />
     </picture>
