@@ -1,0 +1,22 @@
+.colors {
+  &__list {
+    &-item {
+      position: relative;
+
+      &.active::after {
+        content: '';
+        width: 15px;
+        height: 15px;
+        background: url('../../assets/img/check.svg') no-repeat center/contain;
+        margin: auto;
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+      }
+    }
+  }
+}
