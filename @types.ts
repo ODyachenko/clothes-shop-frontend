@@ -100,7 +100,13 @@ export type ProductSizeType = {
   value: string;
 };
 
+export type ProductTabType = {
+  id: number;
+  value: string;
+  state: number;
+  handler: (id: number) => void;
+};
+
 export type ProductColorsType = ProductSizeType;
-export type ProductTabType = ProductSizeType;
 export type FiltersType = ProductSizeType;
 export type SortingType = ProductSizeType;
