@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Slider from 'react-slick';
-import { reviewsList } from '../../data/reviewsList';
 import ReviewsListItem from './ReviewsListItem';
+import { ReviewType } from '../../../@types';
 
 const settings = {
   dots: true,
@@ -25,7 +25,11 @@ const settings = {
   ],
 };
 
-const ReviewsSlider: FC = () => {
+type ReviewsSliderProps = {
+  reviewsList: ReviewType[];
+};
+
+const ReviewsSlider: FC<ReviewsSliderProps> = ({ reviewsList }) => {
   return (
     <ul className="reviews__list slider-container">
       <Slider {...settings}>

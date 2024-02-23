@@ -9,12 +9,14 @@ type AdvertisingProps = {
   title: string;
   productsList: ProductType[];
   className?: string;
+  path: string;
 };
 
 const Advertising: FC<AdvertisingProps> = ({
   className,
   title,
   productsList,
+  path,
 }) => {
   const [width, setWidth] = useState<number>(0);
 
@@ -43,7 +45,13 @@ const Advertising: FC<AdvertisingProps> = ({
         <CardsList
           productsList={productsList}
           className="grid gap-5 grid-cols-4"
-          element={<SecondaryBtn value="View All" className="w-56 mx-auto" />}
+          element={
+            <SecondaryBtn
+              value="View All"
+              className="w-56 mx-auto"
+              path={path}
+            />
+          }
         />
       )}
     </Wrapper>

@@ -1,15 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { pokemonAPI } from './API/pokemonAPI';
-import counterSlice from './slices/counterSlice';
+import { productsAPI } from './API/productsAPI';
+import { reviewsAPI } from './API/reviewsAPI';
+import productSlice from './slices/productSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterSlice,
-    [pokemonAPI.reducerPath]: pokemonAPI.reducer,
+    product: productSlice,
+    [productsAPI.reducerPath]: productsAPI.reducer,
+    [reviewsAPI.reducerPath]: reviewsAPI.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(pokemonAPI.middleware),
+    getDefaultMiddleware()
+      .concat(productsAPI.middleware)
+      .concat(reviewsAPI.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

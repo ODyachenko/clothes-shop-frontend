@@ -26,6 +26,21 @@ export type BtnPropsType = {
   handler?: () => void;
 };
 
+export type BannerType = {
+  id: number;
+  path: string;
+  name: string;
+};
+
+export type SecondaryBtnType = {
+  id?: number;
+  value: string | number;
+  className?: string;
+  path: string;
+  state?: number;
+  handler?: () => void;
+};
+
 export type ChevronType = {
   className?: string;
   handler?: () => void;
@@ -33,17 +48,14 @@ export type ChevronType = {
 
 export type ImageType = {
   id: number;
-  path: string;
+  image: string;
+};
+
+export type CategoryType = {
+  id: number;
   name: string;
 };
 
-export type ProductType = {
-  id: number;
-  img: string;
-  name: string;
-  rating: number;
-  price: number;
-};
 export type CartType = {
   id: number;
   img: string;
@@ -54,11 +66,18 @@ export type CartType = {
   quantity: number;
 };
 
+export type UserType = {
+  id: number;
+  first_name: string;
+  last_name: string;
+};
+
 export type ReviewType = {
   id: number;
-  user: string;
+  user: UserType;
   rating: number;
-  review: string;
+  text: string;
+  create_at: string;
 };
 
 export type SocialType = {
@@ -68,6 +87,7 @@ export type SocialType = {
 };
 
 export type CounterType = {
+  maxValue?: number;
   state: number;
   setState: (state: number) => void;
 };
@@ -108,5 +128,23 @@ export type ProductTabType = {
 };
 
 export type ProductColorsType = ProductSizeType;
+
+export type ProductType = {
+  id: number;
+  images: ImageType[];
+  name: string;
+  description: string;
+  details?: string[];
+  category: CategoryType;
+  rating: number;
+  price: string;
+  inventory: number;
+  sizes: ProductSizeType[];
+  colors: ProductColorsType[];
+  on_sale: boolean;
+  reviews: ReviewType[];
+  create_at: string;
+};
+
 export type FiltersType = ProductSizeType;
 export type SortingType = ProductSizeType;

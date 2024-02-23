@@ -1,16 +1,20 @@
 import React, { FC } from 'react';
+import { useGetTopReviewsQuery } from '../../redux/API/reviewsAPI';
 import { Wrapper } from '../Wrapper/Wrapper';
-import ReviewsList from './ReviewsList';
 import ReviewsSlider from './ReviewsSlider';
 
-const Reviews: FC = () => {
-  return (
+const Reviews = () => {
+  const { data, isLoading, error } = useGetTopReviewsQuery('');
+
+  return data ? (
     <Wrapper className="reviews">
       <h2 className="reviews__title title text-center mb-7 sm:text-left lg:mb-16">
         OUR HAPPY CUSTOMERS
       </h2>
-      <ReviewsSlider />
+      <ReviewsSlider reviewsList={data.results} />
     </Wrapper>
+  ) : (
+    <span></span>
   );
 };
 

@@ -1,6 +1,6 @@
-import { ImageType } from '../../@types';
+import { BannerType } from '../../@types';
 
-export const browseCategories: ImageType[] = [
+export const browseCategories: BannerType[] = [
   {
     id: 1,
     name: 'Casual',

@@ -9,7 +9,7 @@ export const navLinks: NavLinksType[] = [
   {
     id: 2,
     value: 'On Sale',
-    path: '/sales',
+    path: '/sale',
   },
   {
     id: 3,

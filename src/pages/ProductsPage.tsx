@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../components/Layout/Layout';
 import Products from '../components/Products/Products';
 import Sidebar from '../components/Sidebar/Sidebar';
-import { Wrapper } from '../components/Wrapper/Wrapper';
 
 const ProductsPage = () => {
   return (

@@ -1,6 +1,6 @@
-import { ImageType } from '../../@types';
+import { BannerType } from '../../@types';
 
-export const brandsList: ImageType[] = [
+export const brandsList: BannerType[] = [
   {
     id: 1,
     path: require('../assets/img/versace.png'),

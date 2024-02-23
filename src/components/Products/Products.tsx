@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
-import { productsList } from '../../data/productsList';
+import { useGetProductsQuery } from '../../redux/API/productsAPI';
 import CardsList from '../Cards/CardsList';
 import Pagination from '../Pagination/Pagination';
 import Sorting from '../Sorting/Sorting';
 
 const Products: FC = () => {
+  const { data, isLoading, error } = useGetProductsQuery('');
+
   return (
     <main className="products">
       <div className="products__inner flex items-center justify-between mb-5">
@@ -18,11 +20,17 @@ const Products: FC = () => {
           <Sorting />
         </div>
       </div>
-      <CardsList
-        productsList={productsList}
-        className="grid gap-5 lg:grid-cols-3"
-        element={<Pagination />}
-      />
+      {error ? (
+        <p>Oh no, there was an error</p>
+      ) : isLoading ? (
+        <span>Loading...</span>
+      ) : data ? (
+        <CardsList
+          productsList={data.results}
+          className="grid gap-5 lg:grid-cols-3"
+          element={<Pagination />}
+        />
+      ) : null}
     </main>
   );
 };

@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { productsImages } from '../../data/productsImages';
 
 type GalleryListProps = {
   img: string;
