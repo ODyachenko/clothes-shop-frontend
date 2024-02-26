@@ -1,5 +1,6 @@
-import React, { FC, useState } from 'react';
-import { useAppSelector } from '../../hooks/hooks';
+import React, { FC, useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { setActiveTab } from '../../redux/slices/productSlice';
 import Btn from '../../UI/Btn';
 import Counter from '../../UI/Counter';
 import { calculateDiscountPrice } from '../../utils/calculateDiscountPrice';
@@ -10,6 +11,11 @@ import ProductSizes from './ProductSizes';
 const ProductInfo: FC = () => {
   const { currentProduct } = useAppSelector((state) => state.product);
   const [quantity, setQuantity] = useState<number>(1);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setActiveTab(1));
+  }, []);
 
   return (
     <div className="product__info max-w-w-600">

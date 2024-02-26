@@ -1,12 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useCreateUserMutation } from '../../redux/API/usersAPI';
 import BackButton from '../../UI/BackButton';
 import Btn from '../../UI/Btn';
 import Field from '../../UI/Field';
 
 type Inputs = {
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
+  username: string;
   email: string;
   password: string;
 };
@@ -17,8 +20,23 @@ const RegisterForm: FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
+  const [createUser, { isLoading }] = useCreateUserMutation();
+  const [authError, setAuthError] = useState([]);
+  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const response = await createUser(data).then((res: any) => res);
+
+      if (response.error) {
+        throw response.error;
+      }
+      navigate('/login');
+    } catch (error: any) {
+      console.error(error.data);
+      setAuthError(error.data.username);
+    }
+  };
 
   return (
     <div className="max-w-card-1-lg m-auto">
@@ -34,10 +52,10 @@ const RegisterForm: FC = () => {
           className="mb-5"
           type="text"
           label="First Name"
-          name={'firstName'}
+          name={'first_name'}
           placeholder="First Name"
           register={{
-            ...register('firstName', {
+            ...register('first_name', {
               required: 'This field is required',
               minLength: { value: 2, message: 'Min length is 2' },
               maxLength: { value: 30, message: 'Max length is 30' },
@@ -49,10 +67,25 @@ const RegisterForm: FC = () => {
           className="mb-5"
           type="text"
           label="Last Name"
-          name={'lastName'}
+          name={'last_name'}
           placeholder="Last Name"
           register={{
-            ...register('lastName', {
+            ...register('last_name', {
+              required: 'This field is required',
+              minLength: { value: 2, message: 'Min length is 2' },
+              maxLength: { value: 30, message: 'Max length is 30' },
+            }),
+          }}
+          errors={errors}
+        />
+        <Field
+          className="mb-5"
+          type="text"
+          label="Username"
+          name={'username'}
+          placeholder="Username"
+          register={{
+            ...register('username', {
               required: 'This field is required',
               minLength: { value: 2, message: 'Min length is 2' },
               maxLength: { value: 30, message: 'Max length is 30' },
@@ -86,8 +119,13 @@ const RegisterForm: FC = () => {
           register={{
             ...register('password', {
               required: 'This field is required',
-              minLength: { value: 5, message: 'Min length is 5' },
+              minLength: { value: 5, message: 'Min length is 8' },
               maxLength: { value: 40, message: 'Max length is 40' },
+              pattern: {
+                value: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/,
+                message:
+                  'Your password must have at least 8 characters, at least one number, and at least one special character',
+              },
             }),
           }}
           errors={errors}
@@ -101,7 +139,18 @@ const RegisterForm: FC = () => {
           register={register}
           errors={errors}
         /> */}
-        <Btn value="Sign In" type="submit" className="w-full" />
+        <Btn
+          value="Sign In"
+          type="submit"
+          isLoading={isLoading}
+          className="w-full"
+        />
+        {authError &&
+          authError.map((error, index) => (
+            <span key={index} className="block text-red-500 text-center pt-3">
+              {error}
+            </span>
+          ))}
       </form>
     </div>
   );

@@ -23,6 +23,7 @@ export type BtnPropsType = {
   className?: string;
   type?: 'button' | 'submit';
   state?: number;
+  isLoading?: Boolean;
   handler?: () => void;
 };
 
@@ -59,6 +60,19 @@ export type CartType = {
   color: string;
   price: number;
   quantity: number;
+};
+
+export type CreateUserType = {
+  first_name: string;
+  last_name: string;
+  username: string;
+  email: string;
+  password: string;
+};
+
+export type LoginUserType = {
+  username: string;
+  password: string;
 };
 
 export type UserType = {

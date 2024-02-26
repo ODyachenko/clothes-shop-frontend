@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { productsAPI } from './API/productsAPI';
 import { reviewsAPI } from './API/reviewsAPI';
+import { usersAPI } from './API/usersAPI';
 import productSlice from './slices/productSlice';
 
 export const store = configureStore({
@@ -9,11 +10,13 @@ export const store = configureStore({
     product: productSlice,
     [productsAPI.reducerPath]: productsAPI.reducer,
     [reviewsAPI.reducerPath]: reviewsAPI.reducer,
+    [usersAPI.reducerPath]: usersAPI.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       .concat(productsAPI.middleware)
-      .concat(reviewsAPI.middleware),
+      .concat(reviewsAPI.middleware)
+      .concat(usersAPI.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

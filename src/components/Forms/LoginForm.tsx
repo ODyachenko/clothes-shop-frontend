@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import React, { FC, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import BackButton from '../../UI/BackButton';
 import Btn from '../../UI/Btn';
 import Field from '../../UI/Field';
+import { useLoginUserMutation } from '../../redux/API/usersAPI';
 
 type Inputs = {
-  email: string;
+  username: string;
   password: string;
 };
 
@@ -16,8 +17,24 @@ const LoginForm: FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
+  const [loginUser, { isLoading }] = useLoginUserMutation();
+  const [authErrors, setAuthErrors] = useState([]);
+  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const response = await loginUser(data).then((res: any) => res);
+
+      if (response.error) {
+        throw response.error;
+      }
+      localStorage.setItem('token', response.data.auth_token);
+      navigate('/');
+    } catch (error: any) {
+      console.error(error.data.non_field_errors);
+      setAuthErrors(error.data.non_field_errors);
+    }
+  };
 
   return (
     <div className="max-w-card-1-lg m-auto">
@@ -31,17 +48,15 @@ const LoginForm: FC = () => {
         </h1>
         <Field
           className="mb-5"
-          type="email"
-          label="E-mail"
-          name={'email'}
-          placeholder="E-mail"
+          type="text"
+          label="Username"
+          name={'username'}
+          placeholder="Username"
           register={{
-            ...register('email', {
+            ...register('username', {
               required: 'This field is required',
-              pattern: {
-                value: /^\S+@\S+$/i,
-                message: 'Please enter valid email',
-              },
+              minLength: { value: 2, message: 'Min length is 2' },
+              maxLength: { value: 30, message: 'Max length is 30' },
             }),
           }}
           errors={errors}
@@ -55,13 +70,24 @@ const LoginForm: FC = () => {
           register={{
             ...register('password', {
               required: 'This field is required',
-              minLength: { value: 5, message: 'Min length is 5' },
+              minLength: { value: 8, message: 'Min length is 5' },
               maxLength: { value: 40, message: 'Max length is 40' },
             }),
           }}
           errors={errors}
         />
-        <Btn value="Sign In" type="submit" className="w-full" />
+        <Btn
+          value="Sign In"
+          type="submit"
+          isLoading={isLoading}
+          className="w-full"
+        />
+        {authErrors &&
+          authErrors.map((error, index) => (
+            <span key={index} className="block text-red-500 text-center pt-3">
+              {error}
+            </span>
+          ))}
       </form>
       <Link className="block text-center" to="/register">
         Don't have an account?
