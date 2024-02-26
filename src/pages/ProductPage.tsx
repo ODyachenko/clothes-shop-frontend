@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Gallery from '../components/Gallery/Gallery';
 import Layout from '../components/Layout/Layout';

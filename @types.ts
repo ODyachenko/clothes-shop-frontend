@@ -51,11 +51,6 @@ export type ImageType = {
   image: string;
 };
 
-export type CategoryType = {
-  id: number;
-  name: string;
-};
-
 export type CartType = {
   id: number;
   img: string;
@@ -131,8 +126,9 @@ export type ProductType = {
   name: string;
   description: string;
   details?: string[];
-  category: CategoryType;
+  category: string;
   rating: number;
+  discount: number;
   price: string;
   inventory: number;
   sizes: ProductSizeType[];

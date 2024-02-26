@@ -26,6 +26,7 @@ export default {
         'price-30': 'rgba(0, 0, 0, .3)',
         'pagin-color': 'rgba(0, 0, 0, .5)',
         'pagin-page': 'rgba(0, 0, 0, .06)',
+        'discount-bg': 'rgba(255, 51, 51, .1)',
       },
       boxShadow: {
         'card-shadow': 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
