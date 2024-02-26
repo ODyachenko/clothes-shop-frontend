@@ -1,17 +1,19 @@
 import React, { FC } from 'react';
-// import { productsList } from '../../data/productsList';
+import { useGetOnSaleProductsQuery } from '../../redux/API/productsAPI';
 import Advertising from '../Advertising/Advertising';
-import { Wrapper } from '../Wrapper/Wrapper';
 
 const Recommendations: FC = () => {
-  return (
-    // <Advertising
-    //   className="recommendations"
-    //   title="You might also like"
-    //   productsList={productsList}
-    //   path="/"
-    // />
-    <p>rec</p>
+  const { data, isLoading, error } = useGetOnSaleProductsQuery('limit=4');
+
+  return data ? (
+    <Advertising
+      className="recommendations"
+      title="You might also like"
+      productsList={data.results}
+      path="/sale"
+    />
+  ) : (
+    <p>We don't have any promotions</p>
   );
 };
 

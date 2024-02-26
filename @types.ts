@@ -120,14 +120,10 @@ export type ProductSizeType = {
   value: string;
 };
 
-export type ProductTabType = {
-  id: number;
-  value: string;
-  state: number;
-  handler: (id: number) => void;
-};
-
+export type ProductTabType = ProductSizeType;
 export type ProductColorsType = ProductSizeType;
+export type FiltersType = ProductSizeType;
+export type SortingType = ProductSizeType;
 
 export type ProductType = {
   id: number;
@@ -146,5 +142,8 @@ export type ProductType = {
   create_at: string;
 };
 
-export type FiltersType = ProductSizeType;
-export type SortingType = ProductSizeType;
+export type FAQType = {
+  id: number;
+  question: string;
+  answer: string;
+};
