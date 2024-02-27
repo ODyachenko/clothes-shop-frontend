@@ -1,11 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../hooks/hooks';
 import SearchField from '../../UI/SearchField';
 import Burger from './Burger';
 import NavList from './NavList';
 import './styles.scss';
 
 const Nav: FC = () => {
+  const { isAuth } = useAppSelector((state) => state.user);
   const [isActive, setIsActive] = useState<boolean>(false);
 
   useEffect(() => {
@@ -50,7 +52,10 @@ const Nav: FC = () => {
             </g>
           </svg>
         </Link>
-        <Link className="nav__account" to={'/login'}>
+        <Link
+          className="nav__account"
+          to={`${isAuth ? '/account/profile' : '/login'}`}
+        >
           <svg
             width="21"
             height="21"

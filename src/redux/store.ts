@@ -4,10 +4,12 @@ import { productsAPI } from './API/productsAPI';
 import { reviewsAPI } from './API/reviewsAPI';
 import { usersAPI } from './API/usersAPI';
 import productSlice from './slices/productSlice';
+import userSlice from './slices/userSlice';
 
 export const store = configureStore({
   reducer: {
     product: productSlice,
+    user: userSlice,
     [productsAPI.reducerPath]: productsAPI.reducer,
     [reviewsAPI.reducerPath]: reviewsAPI.reducer,
     [usersAPI.reducerPath]: usersAPI.reducer,

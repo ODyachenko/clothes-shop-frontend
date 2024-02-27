@@ -7,6 +7,7 @@ import Sorting from '../Sorting/Sorting';
 
 const ProductReviews = () => {
   const { reviews } = useAppSelector((state) => state.product.currentProduct);
+  const { isAuth } = useAppSelector((state) => state.user);
 
   return (
     <>
@@ -18,7 +19,7 @@ const ProductReviews = () => {
             </h3>
             <div className="product__reviews-actions w-full flex items-center justify-between gap-3 sm:w-auto">
               <Sorting />
-              <Btn value="Write a Review" className="lg:w-40" />
+              {isAuth && <Btn value="Write a Review" className="lg:w-40" />}
             </div>
           </div>
           <ReviewsList reviews={reviews} />

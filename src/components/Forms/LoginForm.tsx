@@ -5,23 +5,22 @@ import BackButton from '../../UI/BackButton';
 import Btn from '../../UI/Btn';
 import Field from '../../UI/Field';
 import { useLoginUserMutation } from '../../redux/API/usersAPI';
-
-type Inputs = {
-  username: string;
-  password: string;
-};
+import { useAppDispatch } from '../../hooks/hooks';
+import { setIsAuth } from '../../redux/slices/userSlice';
+import { LoginUserType } from '../../../@types';
 
 const LoginForm: FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<LoginUserType>();
   const [loginUser, { isLoading }] = useLoginUserMutation();
   const [authErrors, setAuthErrors] = useState([]);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const onSubmit: SubmitHandler<LoginUserType> = async (data) => {
     try {
       const response = await loginUser(data).then((res: any) => res);
 
@@ -29,6 +28,7 @@ const LoginForm: FC = () => {
         throw response.error;
       }
       localStorage.setItem('token', response.data.auth_token);
+      dispatch(setIsAuth(true));
       navigate('/');
     } catch (error: any) {
       console.error(error.data.non_field_errors);
@@ -48,15 +48,17 @@ const LoginForm: FC = () => {
         </h1>
         <Field
           className="mb-5"
-          type="text"
-          label="Username"
-          name={'username'}
-          placeholder="Username"
+          type="email"
+          label="E-mail"
+          name={'email'}
+          placeholder="E-mail"
           register={{
-            ...register('username', {
+            ...register('email', {
               required: 'This field is required',
-              minLength: { value: 2, message: 'Min length is 2' },
-              maxLength: { value: 30, message: 'Max length is 30' },
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: 'Please enter valid email',
+              },
             }),
           }}
           errors={errors}
