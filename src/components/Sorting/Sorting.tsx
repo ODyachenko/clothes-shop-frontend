@@ -1,11 +1,18 @@
-import React, { FC, Fragment, useState } from 'react';
-import Chevron from '../../UI/Chevron';
+import React, { FC, Fragment, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
 import { sortingList } from '../../data/sortingList';
 import SortingListItem from './SortingListItem';
+import { useAppDispatch } from '../../hooks/hooks';
+import { setActiveSort } from '../../redux/slices/filterSlice';
 
 const Sorting: FC = () => {
   const [selected, setSelected] = useState<number>(0);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setActiveSort(sortingList[selected].slug));
+  }, [selected]);
 
   return (
     <Menu as="div" className="relative inline-block text-left">

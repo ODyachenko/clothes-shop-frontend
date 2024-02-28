@@ -1,13 +1,17 @@
 import React, { FC } from 'react';
-import { filters } from '../../../data/filters';
+import { FiltersType } from '../../../../@types';
+import { useGetCategoriesQuery } from '../../../redux/API/productsAPI';
 import FiltersListItem from './FiltersListItem';
 
 const FiltersList: FC = () => {
+  const { data, isLoading, error } = useGetCategoriesQuery('');
+
   return (
     <ul className="filters__list text-text-o">
-      {filters.map((filter) => (
-        <FiltersListItem key={filter.id} {...filter} />
-      ))}
+      {data &&
+        data.results.map((filter: FiltersType) => (
+          <FiltersListItem key={filter.id} {...filter} />
+        ))}
     </ul>
   );
 };

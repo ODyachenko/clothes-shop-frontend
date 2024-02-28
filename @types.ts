@@ -124,6 +124,16 @@ export type FieldType = {
   name: string;
 };
 
+export type SortingType = {
+  id: number;
+  value: string;
+  slug: string;
+};
+
+export type FiltersType = {
+  id: number;
+  name: string;
+};
 export type ProductSizeType = {
   id: number;
   value: string;
@@ -131,8 +141,6 @@ export type ProductSizeType = {
 
 export type ProductTabType = ProductSizeType;
 export type ProductColorsType = ProductSizeType;
-export type FiltersType = ProductSizeType;
-export type SortingType = ProductSizeType;
 
 export type ProductType = {
   id: number;
@@ -156,4 +164,13 @@ export type FAQType = {
   id: number;
   question: string;
   answer: string;
+};
+
+export type QueryObj = {
+  ordering: string;
+  category: number;
+  colors: number;
+  sizes: number;
+  min_price: number;
+  max_price: number;
 };

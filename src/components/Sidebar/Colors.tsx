@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
 import ColorsList from '../Colors/ColorsList';
 import SidebarCategory from './SidebarCategory';
-import { colorsList } from '../../data/colorsList';
+import { useGetColorsQuery } from '../../redux/API/productsAPI';
 
 const Colors: FC = () => {
+  const { data, isLoading, error } = useGetColorsQuery('');
+
   return (
     <SidebarCategory title="Colors">
-      <ColorsList colors={colorsList} />
+      {data && <ColorsList colors={data.results} />}
     </SidebarCategory>
   );
 };

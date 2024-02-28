@@ -3,12 +3,14 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { productsAPI } from './API/productsAPI';
 import { reviewsAPI } from './API/reviewsAPI';
 import { usersAPI } from './API/usersAPI';
+import filterSlice from './slices/filterSlice';
 import productSlice from './slices/productSlice';
 import userSlice from './slices/userSlice';
 
 export const store = configureStore({
   reducer: {
     product: productSlice,
+    filter: filterSlice,
     user: userSlice,
     [productsAPI.reducerPath]: productsAPI.reducer,
     [reviewsAPI.reducerPath]: reviewsAPI.reducer,

@@ -1,5 +1,8 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ProductColorsType } from '../../../@types';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { setActiveColor } from '../../redux/slices/filterSlice';
 import ColorsListItem from './ColorsListItem';
 import './styles.scss';
 
@@ -8,10 +11,13 @@ type ColorsListProps = {
 };
 
 const ColorsList: FC<ColorsListProps> = ({ colors }) => {
-  const [selectedColorId, setSelectedColorId] = useState<number>(1);
+  const { activeColor } = useAppSelector((state) => state.filter);
+  const dispatch = useAppDispatch();
 
   const onClickHandler = (id: number) => {
-    setSelectedColorId(id);
+    id === activeColor
+      ? dispatch(setActiveColor(0))
+      : dispatch(setActiveColor(id));
   };
 
   return (
@@ -20,7 +26,7 @@ const ColorsList: FC<ColorsListProps> = ({ colors }) => {
         <ColorsListItem
           key={color.id}
           {...color}
-          selectedColorId={selectedColorId}
+          selectedColorId={activeColor}
           onClickHandler={onClickHandler}
         />
       ))}

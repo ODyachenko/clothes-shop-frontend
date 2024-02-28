@@ -8,6 +8,7 @@
         width: 15px;
         height: 15px;
         background: url('../../assets/img/check.svg') no-repeat center/contain;
+        pointer-events: none;
         margin: auto;
 
         position: absolute;

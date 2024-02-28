@@ -17,4 +17,8 @@ export const productSizes: ProductSizeType[] = [
     id: 4,
     value: 'X-Large',
   },
+  {
+    id: 5,
+    value: 'XX-Large',
+  },
 ];

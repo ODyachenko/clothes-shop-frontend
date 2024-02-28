@@ -1,7 +1,5 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { ReviewType } from '../../../@types';
-import { reviewsList } from '../../data/reviewsList';
-import SecondaryBtn from '../../UI/SecondaryBtn';
 import ReviewsListItem from './ReviewsListItem';
 
 type ReviewsListProps = {
@@ -16,7 +14,6 @@ const ReviewsList: FC<ReviewsListProps> = ({ reviews }) => {
           <ReviewsListItem key={review.id} {...review} />
         ))}
       </ul>
-      {/* <SecondaryBtn value="Load More Reviews" className="mx-auto" /> */}
     </>
   );
 };

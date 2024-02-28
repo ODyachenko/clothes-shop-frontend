@@ -1,4 +1,4 @@
-import React, { FC, FormEvent, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { RangeSliderType } from '../../../@types';
 import './styles.scss';
 

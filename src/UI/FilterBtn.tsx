@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const FilterBtn = () => {
+type FilterBtnType = {
+  handler: () => void;
+};
+
+const FilterBtn: FC<FilterBtnType> = ({ handler }) => {
   return (
-    <button className="bg-search-bg w-12 h-12 rounded-3xl flex items-center justify-center">
+    <button
+      onClick={handler}
+      className="w-12 h-12 rounded-3xl flex items-center justify-center transition-all hover:bg-search-bg"
+    >
       <svg
         width="24"
         height="24"

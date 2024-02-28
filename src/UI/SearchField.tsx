@@ -18,7 +18,7 @@ const SearchField: FC = () => {
 
       <input
         type="search"
-        className="hidden lg:block lg:w-full"
+        className="hidden bg-transparent lg:block lg:w-full"
         placeholder="Search for products..."
       />
     </label>

@@ -5,7 +5,7 @@ import ShipmantInfo from './ShipmantInfo';
 
 const ProfileCategories: FC = () => {
   return (
-    <div className="space-y-12">
+    <div>
       <PersonalInfo />
       <ShipmantInfo />
       <PaymantInfo />

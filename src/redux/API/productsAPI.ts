@@ -4,8 +4,14 @@ export const productsAPI = createApi({
   reducerPath: 'productsAPI',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://127.0.0.1:8000/api/' }),
   endpoints: (builder) => ({
+    getCategories: builder.query({
+      query: () => `categories`,
+    }),
+    getColors: builder.query({
+      query: () => `colors`,
+    }),
     getProducts: builder.query({
-      query: () => `products`,
+      query: (query) => `products?${query}`,
     }),
     getProductById: builder.query<string, string>({
       query: (id) => `products/${id}`,
@@ -23,6 +29,8 @@ export const productsAPI = createApi({
 // Export hooks for usage in function components, which are
 // auto-generated based on the defined endpoints
 export const {
+  useGetCategoriesQuery,
+  useGetColorsQuery,
   useGetProductsQuery,
   useGetProductByIdQuery,
   useGetNewProductsQuery,

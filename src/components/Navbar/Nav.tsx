@@ -4,6 +4,7 @@ import { useAppSelector } from '../../hooks/hooks';
 import SearchField from '../../UI/SearchField';
 import Burger from './Burger';
 import NavList from './NavList';
+
 import './styles.scss';
 
 const Nav: FC = () => {
