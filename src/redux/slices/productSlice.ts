@@ -7,11 +7,13 @@ import { ProductType } from '../../../@types';
 interface IProductState {
   currentProduct: Partial<ProductType>;
   activeTab: number;
+  productsCount: number;
 }
 
 // Define the initial state using that type
 const initialState: IProductState = {
   currentProduct: {},
+  productsCount: 0,
   activeTab: 1,
 };
 
@@ -25,8 +27,12 @@ export const productSlice = createSlice({
     setActiveTab: (state, action: PayloadAction<number>) => {
       state.activeTab = action.payload;
     },
+    setProductsCount: (state, action: PayloadAction<number>) => {
+      state.productsCount = action.payload;
+    },
   },
 });
 
-export const { setProduct, setActiveTab } = productSlice.actions;
+export const { setProduct, setActiveTab, setProductsCount } =
+  productSlice.actions;
 export default productSlice.reducer;

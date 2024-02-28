@@ -5,8 +5,9 @@ import { useGetProductsQuery } from '../../redux/API/productsAPI';
 import CardsList from '../Cards/CardsList';
 import Pagination from '../Pagination/Pagination';
 import Sorting from '../Sorting/Sorting';
-import { useAppSelector } from '../../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { QueryObj } from '../../../@types';
+import { setProductsCount } from '../../redux/slices/productSlice';
 
 const Products: FC = () => {
   const {
@@ -19,6 +20,7 @@ const Products: FC = () => {
     isFilterApplied,
   } = useAppSelector((state) => state.filter);
   const [queryString, setQueryString] = useState<string>('');
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const { data, isLoading, error } = useGetProductsQuery(queryString);
@@ -42,6 +44,12 @@ const Products: FC = () => {
 
     navigate(`?${queryString}`);
   }, [isFilterApplied, queryString, activeSort, currentPage]);
+
+  useEffect(() => {
+    if (data) {
+      dispatch(setProductsCount(data.count));
+    }
+  }, [data]);
 
   return (
     <main className="products w-full">
