@@ -10,6 +10,7 @@ export interface IFilterState {
   activeColor: number;
   activeSize: number;
   activePrice: PriceValueType;
+  currentPage: number;
   isFilterApplied: boolean;
 }
 
@@ -23,6 +24,7 @@ const initialState: IFilterState = {
     min: 0,
     max: 1000,
   },
+  currentPage: 1,
   isFilterApplied: false,
 };
 
@@ -48,6 +50,9 @@ export const filterSlice = createSlice({
     setIsFilterApplied: (state) => {
       state.isFilterApplied = !state.isFilterApplied;
     },
+    setCurrentPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
+    },
     setDefaultState: (state) => {
       state.activeCategory = 0;
       state.activeColor = 0;
@@ -66,6 +71,7 @@ export const {
   setActiveColor,
   setActivePrice,
   setActiveSize,
+  setCurrentPage,
   setIsFilterApplied,
   setDefaultState,
 } = filterSlice.actions;

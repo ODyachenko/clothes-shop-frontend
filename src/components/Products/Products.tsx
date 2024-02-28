@@ -15,6 +15,7 @@ const Products: FC = () => {
     activeColor,
     activeSize,
     activePrice,
+    currentPage,
     isFilterApplied,
   } = useAppSelector((state) => state.filter);
   const [queryString, setQueryString] = useState<string>('');
@@ -30,6 +31,7 @@ const Products: FC = () => {
       sizes: activeSize,
       min_price: activePrice.min,
       max_price: activePrice.max,
+      page: currentPage,
     };
 
     const filteredQueryObj = Object.fromEntries(
@@ -39,7 +41,7 @@ const Products: FC = () => {
     setQueryString(qs.stringify(filteredQueryObj));
 
     navigate(`?${queryString}`);
-  }, [isFilterApplied, queryString, activeSort]);
+  }, [isFilterApplied, queryString, activeSort, currentPage]);
 
   return (
     <main className="products w-full">

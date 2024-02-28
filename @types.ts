@@ -173,4 +173,5 @@ export type QueryObj = {
   sizes: number;
   min_price: number;
   max_price: number;
+  page: number;
 };
