@@ -13,7 +13,7 @@ const Gallery: FC = () => {
         {currentProduct.images && (
           <img
             className='className="rounded-3xl mx-auto"'
-            src={currentProduct.images[imgIdx].image}
+            src={currentProduct.images[imgIdx]?.image}
             alt=""
           />
         )}

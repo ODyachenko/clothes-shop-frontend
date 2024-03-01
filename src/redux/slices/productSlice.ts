@@ -5,14 +5,30 @@ import { ProductType } from '../../../@types';
 
 // Define a type for the slice state
 interface IProductState {
-  currentProduct: Partial<ProductType>;
+  currentProduct: ProductType;
   activeTab: number;
   productsCount: number;
 }
 
 // Define the initial state using that type
 const initialState: IProductState = {
-  currentProduct: {},
+  currentProduct: {
+    id: 0,
+    name: '',
+    description: '',
+    details: [],
+    category: '',
+    discount: 0,
+    price: '',
+    inventory: 0,
+    images: [],
+    sizes: [],
+    colors: [],
+    on_sale: false,
+    rating: 0,
+    reviews: [],
+    create_at: '',
+  },
   productsCount: 0,
   activeTab: 1,
 };

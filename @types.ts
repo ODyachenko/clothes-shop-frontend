@@ -19,7 +19,7 @@ export type HeaderStatsType = {
 
 export type BtnPropsType = {
   id?: number;
-  value: string | number;
+  value: string | number | React.ReactNode;
   className?: string;
   type?: 'button' | 'submit';
   state?: number;
@@ -50,16 +50,6 @@ export type ChevronType = {
 export type ImageType = {
   id: number;
   image: string;
-};
-
-export type CartType = {
-  id: number;
-  img: string;
-  name: string;
-  size: string;
-  color: string;
-  price: number;
-  quantity: number;
 };
 
 export type CreateUserType = {
@@ -158,6 +148,19 @@ export type ProductType = {
   on_sale: boolean;
   reviews: ReviewType[];
   create_at: string;
+};
+
+export type CartType = {
+  id?: number;
+  user?: number;
+  productItemId?: number;
+  productItem?: ProductType;
+  size: number;
+  color: number;
+  quantity: number;
+  inventory: number;
+  unit_price: string;
+  total_price?: string;
 };
 
 export type FAQType = {

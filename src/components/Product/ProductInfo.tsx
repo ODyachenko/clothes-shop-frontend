@@ -1,5 +1,8 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
+import { BeatLoader } from 'react-spinners';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { usePostToCartMutation } from '../../redux/API/cartAPI';
+import { setCartItemQuantity } from '../../redux/slices/cartSlice';
 import { setActiveTab } from '../../redux/slices/productSlice';
 import Btn from '../../UI/Btn';
 import Counter from '../../UI/Counter';
@@ -10,12 +13,23 @@ import ProductSizes from './ProductSizes';
 
 const ProductInfo: FC = () => {
   const { currentProduct } = useAppSelector((state) => state.product);
-  const [quantity, setQuantity] = useState<number>(1);
+  const { cartItem } = useAppSelector((state) => state.cart);
+  const [createCartItem, { isLoading, error }] = usePostToCartMutation();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(setActiveTab(1));
   }, []);
+
+  const onClickHandler = () => {
+    !Object.values(cartItem).some((value) => value === 0)
+      ? createCartItem(cartItem)
+      : alert('Color and size are required!');
+  };
+
+  const setQuantity = (id: number) => {
+    dispatch(setCartItemQuantity(id));
+  };
 
   return (
     <div className="product__info max-w-w-600">
@@ -55,11 +69,15 @@ const ProductInfo: FC = () => {
       <ProductSizes />
       <div className="flex items-center gap-5 mb-12">
         <Counter
-          state={quantity}
+          state={cartItem.quantity}
           setState={setQuantity}
           maxValue={currentProduct.inventory}
         />
-        <Btn value="Add to Cart" className="w-full" />
+        <Btn
+          handler={onClickHandler}
+          value={isLoading ? <BeatLoader color="#fff" /> : 'Add to Cart'}
+          className="w-full"
+        />
       </div>
     </div>
   );

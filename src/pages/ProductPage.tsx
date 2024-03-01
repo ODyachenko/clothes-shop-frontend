@@ -10,7 +10,14 @@ import ProductTabs from '../components/Product/ProductTabs/ProductTabs';
 import Recommendations from '../components/Recommendations/Recommendations';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { useGetProductByIdQuery } from '../redux/API/productsAPI';
+import {
+  resetCartItem,
+  setCartItemId,
+  setCartItemInventory,
+  setCartItemPrice,
+} from '../redux/slices/cartSlice';
 import { setProduct } from '../redux/slices/productSlice';
+import { calculateDiscountPrice } from '../utils/calculateDiscountPrice';
 
 type ConditionalRenderType = {
   [key: number]: JSX.Element;
@@ -29,7 +36,18 @@ const ProductPage: FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    data && dispatch(setProduct(Object(data)));
+    dispatch(resetCartItem());
+
+    if (data) {
+      dispatch(setProduct(Object(data)));
+      dispatch(setCartItemId(Object(data).id));
+      dispatch(setCartItemInventory(Object(data).inventory));
+      dispatch(
+        setCartItemPrice(
+          calculateDiscountPrice(Object(data).price, Object(data).discount)
+        )
+      );
+    }
   }, [data]);
 
   return (

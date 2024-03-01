@@ -1,33 +1,23 @@
-import React, { FC, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { FC } from 'react';
 import { ProductColorsType } from '../../../@types';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { setActiveColor } from '../../redux/slices/filterSlice';
 import ColorsListItem from './ColorsListItem';
 import './styles.scss';
 
 type ColorsListProps = {
   colors: ProductColorsType[];
+  state: number;
+  handler: (id: number) => void;
 };
 
-const ColorsList: FC<ColorsListProps> = ({ colors }) => {
-  const { activeColor } = useAppSelector((state) => state.filter);
-  const dispatch = useAppDispatch();
-
-  const onClickHandler = (id: number) => {
-    id === activeColor
-      ? dispatch(setActiveColor(0))
-      : dispatch(setActiveColor(id));
-  };
-
+const ColorsList: FC<ColorsListProps> = ({ colors, state, handler }) => {
   return (
     <ul className="colors__list flex flex-wrap gap-4">
       {colors.map((color) => (
         <ColorsListItem
           key={color.id}
           {...color}
-          selectedColorId={activeColor}
-          onClickHandler={onClickHandler}
+          selectedColorId={state}
+          onClickHandler={handler}
         />
       ))}
     </ul>
