@@ -1,4 +1,5 @@
 import React from 'react';
+import { RegisterOptions, FieldErrors } from 'react-hook-form';
 
 export type WrapperType = {
   children: React.ReactNode;
@@ -63,6 +64,11 @@ export type CreateUserType = {
 export type LoginUserType = {
   email: string;
   password: string;
+};
+
+export type ReviewFormType = {
+  rating: number;
+  text: string;
 };
 
 export type UserType = {

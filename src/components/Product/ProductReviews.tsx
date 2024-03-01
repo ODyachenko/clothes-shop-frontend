@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import Btn from '../../UI/Btn';
 import FilterBtn from '../../UI/FilterBtn';
+import ReviewForm from '../Forms/ReviewForm';
 import ReviewsList from '../Reviews/ReviewsList';
 import Sorting from '../Sorting/Sorting';
 
 const ProductReviews = () => {
   const { reviews } = useAppSelector((state) => state.product.currentProduct);
   const { isAuth } = useAppSelector((state) => state.user);
+  const [isShow, setIsShow] = useState<boolean>(false);
+
+  const onClickReviewBtn = () => {
+    setIsShow(!isShow);
+  };
 
   return (
     <>
@@ -19,9 +25,16 @@ const ProductReviews = () => {
             </h3>
             <div className="product__reviews-actions w-full flex items-center justify-between gap-3 sm:w-auto">
               <Sorting />
-              {isAuth && <Btn value="Write a Review" className="lg:w-40" />}
+              {isAuth && (
+                <Btn
+                  value={isShow ? 'Hide form' : 'Write a Review'}
+                  handler={onClickReviewBtn}
+                  className="lg:w-40"
+                />
+              )}
             </div>
           </div>
+          {isShow && <ReviewForm />}
           <ReviewsList reviews={reviews} />
         </div>
       ) : (
