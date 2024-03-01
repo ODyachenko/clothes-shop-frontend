@@ -1,24 +1,17 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import CartList from '../components/Cart/CartList';
 import CartSummary from '../components/Cart/CartSummary';
 import Layout from '../components/Layout/Layout';
 import { Wrapper } from '../components/Wrapper/Wrapper';
-import { useAppDispatch } from '../hooks/hooks';
-import { useGetCartQuery } from '../redux/API/cartAPI';
-import { setCartList } from '../redux/slices/cartSlice';
+import { useAppSelector } from '../hooks/hooks';
 
 const Cart: FC = () => {
-  const { data, isLoading, error } = useGetCartQuery('');
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    data && dispatch(setCartList(data.results));
-  }, [data]);
+  const { cartList } = useAppSelector((state) => state.cart);
 
   return (
     <Layout>
       <Wrapper className="cart">
-        {data?.results.length ? (
+        {cartList.length ? (
           <>
             <h1 className="cart__title title mb-5 lg:mb-6">Your Cart</h1>
             <div className="cart__row lg:flex lg:gap-5 lg:items-start">

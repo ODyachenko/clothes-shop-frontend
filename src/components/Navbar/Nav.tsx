@@ -1,6 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppSelector } from '../../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { useGetCartQuery } from '../../redux/API/cartAPI';
+import { setCartList } from '../../redux/slices/cartSlice';
 import SearchField from '../../UI/SearchField';
 import Burger from './Burger';
 import NavList from './NavList';
@@ -9,7 +11,14 @@ import './styles.scss';
 
 const Nav: FC = () => {
   const { isAuth } = useAppSelector((state) => state.user);
+  const { cartList } = useAppSelector((state) => state.cart);
   const [isActive, setIsActive] = useState<boolean>(false);
+  const { data, isLoading, error } = useGetCartQuery('');
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    data && dispatch(setCartList(data.results));
+  }, [data]);
 
   useEffect(() => {
     isActive
@@ -52,6 +61,9 @@ const Nav: FC = () => {
               />
             </g>
           </svg>
+          {!!cartList.length && (
+            <span className="nav__cart-count">{cartList.length}</span>
+          )}
         </Link>
         <Link
           className="nav__account"
