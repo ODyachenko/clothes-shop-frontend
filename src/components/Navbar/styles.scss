@@ -40,6 +40,26 @@
       z-index: 50;
     }
   }
+  &__cart {
+    position: relative;
+
+    &-count {
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      line-height: 1;
+      color: #fff;
+      background: red;
+      border-radius: 50%;
+
+      position: absolute;
+      top: -5px;
+      right: -5px;
+    }
+  }
 }
 .hamburger {
   height: 24px;
@@ -182,27 +202,10 @@
       display: none !important;
     }
     &__cart {
-      position: relative;
       &:hover {
         & svg {
           fill: #000;
         }
-      }
-      &-count {
-        width: 15px;
-        height: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 14px;
-        line-height: 1;
-        color: #fff;
-        background: red;
-        border-radius: 50%;
-
-        position: absolute;
-        top: -5px;
-        right: -5px;
       }
     }
   }

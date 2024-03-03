@@ -130,6 +130,13 @@ export type FiltersType = {
   id: number;
   name: string;
 };
+
+export type BrandsType = {
+  id: number;
+  name: string;
+  logo: string;
+};
+
 export type ProductSizeType = {
   id: number;
   value: string;

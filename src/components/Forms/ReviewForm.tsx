@@ -7,6 +7,8 @@ import { usePostReviewMutation } from '../../redux/API/reviewsAPI';
 import Btn from '../../UI/Btn';
 import TextArea from '../../UI/TextArea';
 import RatingStars from '../../UI/RatingStars';
+import { useAppDispatch } from '../../hooks/hooks';
+import { setShowReviewForm } from '../../redux/slices/reviewSlice';
 
 const ReviewForm: FC = () => {
   const {
@@ -18,12 +20,14 @@ const ReviewForm: FC = () => {
   const [createReview, { isLoading, error }] = usePostReviewMutation();
   const [rating, setRating] = useState<number>(0);
   const { id } = useParams();
+  const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<ReviewFormType> = async (data) => {
     try {
       await createReview({ ...data, rating, product: id });
       setRating(0);
       reset();
+      dispatch(setShowReviewForm(false));
     } catch (error: any) {
       console.error(error.message);
     }

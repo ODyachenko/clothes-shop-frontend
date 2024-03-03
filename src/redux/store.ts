@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import { brandsAPI } from './API/brandsAPI';
 import { cartAPI } from './API/cartAPI';
 import { productsAPI } from './API/productsAPI';
 import { reviewsAPI } from './API/reviewsAPI';
@@ -7,6 +8,7 @@ import { usersAPI } from './API/usersAPI';
 import cartSlice from './slices/cartSlice';
 import filterSlice from './slices/filterSlice';
 import productSlice from './slices/productSlice';
+import reviewSlice from './slices/reviewSlice';
 import userSlice from './slices/userSlice';
 
 export const store = configureStore({
@@ -15,6 +17,8 @@ export const store = configureStore({
     filter: filterSlice,
     user: userSlice,
     cart: cartSlice,
+    review: reviewSlice,
+    [brandsAPI.reducerPath]: brandsAPI.reducer,
     [productsAPI.reducerPath]: productsAPI.reducer,
     [reviewsAPI.reducerPath]: reviewsAPI.reducer,
     [usersAPI.reducerPath]: usersAPI.reducer,
@@ -22,6 +26,7 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
+      .concat(brandsAPI.middleware)
       .concat(productsAPI.middleware)
       .concat(reviewsAPI.middleware)
       .concat(usersAPI.middleware)

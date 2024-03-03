@@ -14,7 +14,7 @@ const Pagination: FC = () => {
     dispatch(setCurrentPage(id));
   }
 
-  return (
+  return productsCount > 6 ? (
     <ReactPaginate
       className="pagination"
       forcePage={currentPage - 1}
@@ -26,7 +26,7 @@ const Pagination: FC = () => {
       previousLabel="Previous"
       renderOnZeroPageCount={null}
     />
-  );
+  ) : null;
 };
 
 export default Pagination;

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Layout from '../components/Layout/Layout';
 import Products from '../components/Products/Products';
 import Sidebar from '../components/Sidebar/Sidebar';
 
-const ProductsPage = () => {
+const ProductsPage: FC = () => {
   return (
     <Layout>
       <div className="products py-14">

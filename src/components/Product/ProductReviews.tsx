@@ -1,5 +1,6 @@
-import React, { FC, useState } from 'react';
-import { useAppSelector } from '../../hooks/hooks';
+import React, { FC } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { setShowReviewForm } from '../../redux/slices/reviewSlice';
 import Btn from '../../UI/Btn';
 import ReviewForm from '../Forms/ReviewForm';
 import ReviewsList from '../Reviews/ReviewsList';
@@ -8,10 +9,11 @@ import Sorting from '../Sorting/Sorting';
 const ProductReviews: FC = () => {
   const { reviews } = useAppSelector((state) => state.product.currentProduct);
   const { isAuth } = useAppSelector((state) => state.user);
-  const [isShow, setIsShow] = useState<boolean>(false);
+  const { showReviewForm } = useAppSelector((state) => state.review);
+  const dispatch = useAppDispatch();
 
   const onClickReviewBtn = () => {
-    setIsShow(!isShow);
+    dispatch(setShowReviewForm(!showReviewForm));
   };
 
   return (
@@ -26,14 +28,14 @@ const ProductReviews: FC = () => {
               <Sorting />
               {isAuth && (
                 <Btn
-                  value={isShow ? 'Hide form' : 'Write a Review'}
+                  value={showReviewForm ? 'Hide form' : 'Write a Review'}
                   handler={onClickReviewBtn}
                   className="lg:w-40"
                 />
               )}
             </div>
           </div>
-          {isShow && <ReviewForm />}
+          {showReviewForm && <ReviewForm />}
           <ReviewsList reviews={reviews} />
         </div>
       ) : (
