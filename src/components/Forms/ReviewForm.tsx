@@ -2,18 +2,19 @@ import React, { FC, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 import { useParams } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import ReactStars from 'react-stars';
-import { ReviewFormType, ReviewType } from '../../../@types';
+import { ReviewFormType } from '../../../@types';
 import { usePostReviewMutation } from '../../redux/API/reviewsAPI';
 import Btn from '../../UI/Btn';
 import TextArea from '../../UI/TextArea';
+import RatingStars from '../../UI/RatingStars';
 
 const ReviewForm: FC = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm<ReviewFormType>();
+  } = useForm<ReviewFormType>({ reValidateMode: 'onChange' });
   const [createReview, { isLoading, error }] = usePostReviewMutation();
   const [rating, setRating] = useState<number>(0);
   const { id } = useParams();
@@ -21,6 +22,8 @@ const ReviewForm: FC = () => {
   const onSubmit: SubmitHandler<ReviewFormType> = async (data) => {
     try {
       await createReview({ ...data, rating, product: id });
+      setRating(0);
+      reset();
     } catch (error: any) {
       console.error(error.message);
     }
@@ -35,16 +38,18 @@ const ReviewForm: FC = () => {
       className="product__review-form feedback mb-10"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <ReactStars
-        className="mb-3"
-        value={rating}
-        count={5}
-        onChange={ratingChanged}
-        size={24}
-        color1={'#f0f0f0'}
-        color2={'#ffd700'}
+      <RatingStars
+        state={rating}
+        handler={ratingChanged}
+        errors={errors}
+        register={{
+          ...register('rating', {
+            required: 'This field is required',
+            min: { value: 1, message: 'Min rating is 1' },
+            max: { value: 5, message: 'Max rating is 5' },
+          }),
+        }}
       />
-      <span className="block text-red-500 mb-2">Choose rating</span>
       <TextArea
         name={'text'}
         errors={errors}

@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import Btn from '../../UI/Btn';
-import FilterBtn from '../../UI/FilterBtn';
 import ReviewForm from '../Forms/ReviewForm';
 import ReviewsList from '../Reviews/ReviewsList';
 import Sorting from '../Sorting/Sorting';
 
-const ProductReviews = () => {
+const ProductReviews: FC = () => {
   const { reviews } = useAppSelector((state) => state.product.currentProduct);
   const { isAuth } = useAppSelector((state) => state.user);
   const [isShow, setIsShow] = useState<boolean>(false);
