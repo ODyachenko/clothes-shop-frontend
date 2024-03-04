@@ -7,7 +7,11 @@ type SkelletonsListProps = {
 
 const SkelletonsList: FC<SkelletonsListProps> = ({ className }) => {
   return (
-    <div className={className}>{new Array(4).fill(<CardSkelleton />)}</div>
+    <div className={className}>
+      {new Array(4).fill('').map((_, idx) => (
+        <CardSkelleton key={idx} />
+      ))}
+    </div>
   );
 };
 

@@ -17,6 +17,7 @@ const Profile = () => {
   return (
     <Layout>
       <Wrapper className="profile">
+        <h1 className="title mb-8">Profile</h1>
         <form>
           <ProfileCategories />
           <ProfileActions />

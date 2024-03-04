@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
 import { useAppDispatch } from '../../../hooks/hooks';
-import { setDefaultState } from '../../../redux/slices/filterSlice';
+import {
+  setDefaultState,
+  setIsFilterApplied,
+} from '../../../redux/slices/filterSlice';
 import FilterBtn from '../../../UI/FilterBtn';
 import SidebarCategory from '../SidebarCategory';
 import FiltersList from './FiltersList';
@@ -10,6 +13,7 @@ const Filters: FC = () => {
 
   const onClickHandler = () => {
     dispatch(setDefaultState());
+    dispatch(setIsFilterApplied());
   };
 
   return (

@@ -13,6 +13,7 @@ import Profile from './pages/Profile';
 import { useEffect } from 'react';
 import { useAppDispatch } from './hooks/hooks';
 import { setIsAuth } from './redux/slices/userSlice';
+import PurchaseHistory from './pages/PurchaseHistory';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -35,6 +36,7 @@ function App() {
         <Route path="/brands" element={<Brands />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/account/profile" element={<Profile />} />
+        <Route path="/account/purchase-history" element={<PurchaseHistory />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
