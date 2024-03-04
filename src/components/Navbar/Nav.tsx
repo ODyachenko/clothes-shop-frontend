@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { useGetCartQuery } from '../../redux/API/cartAPI';
 import { setCartList } from '../../redux/slices/cartSlice';
-import SearchField from '../../UI/SearchField';
+import SearchField from '../../UI/SearchField/SearchField';
 import Burger from './Burger';
 import NavList from './NavList';
+import Search from '../Search/Search';
 
 import './styles.scss';
 
@@ -42,7 +43,7 @@ const Nav: FC = () => {
         >
           <NavList />
         </div>
-        <SearchField />
+        <Search />
         <NavLink className="nav__cart" to={'/cart'}>
           <svg
             width="24px"

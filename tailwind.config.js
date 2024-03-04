@@ -16,6 +16,7 @@ export default {
         'sidebar-h': 'calc(100vh - 100px)',
         'sidebar-w': '295px',
         'summary-2': '500px',
+        'search-top': 'calc(100% + 10px)',
       },
       colors: {
         'search-bg': '#F0F0F0',

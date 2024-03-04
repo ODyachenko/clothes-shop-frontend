@@ -120,6 +120,11 @@ export type FieldType = {
   name: string;
 };
 
+export type SearchFieldType = {
+  value: string;
+  onChange: (e: string) => void;
+};
+
 export type SortingType = {
   id: number;
   value: string;
@@ -130,6 +135,8 @@ export type FiltersType = {
   id: number;
   name: string;
 };
+
+export type SearchListType = FiltersType;
 
 export type BrandsType = {
   id: number;

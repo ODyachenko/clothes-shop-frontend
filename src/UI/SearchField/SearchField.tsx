@@ -1,8 +1,10 @@
 import React, { FC } from 'react';
+import { SearchFieldType } from '../../../@types';
+import './styles.scss';
 
-const SearchField: FC = () => {
+const SearchField: FC<SearchFieldType> = ({ value, onChange }) => {
   return (
-    <label className="search relative block cursor-pointer lg:w-full max-w-search-field lg:bg-gray-100 lg:rounded-3xl  lg:py-4 lg:px-4 lg:flex lg:gap-3 lg:transition-all lg:duration-200 hover:shadow-md">
+    <label className="search">
       <svg
         width="22"
         height="22"
@@ -18,7 +20,8 @@ const SearchField: FC = () => {
 
       <input
         type="search"
-        className="hidden bg-transparent lg:block lg:w-full"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
         placeholder="Search for products..."
       />
     </label>
