@@ -6,6 +6,7 @@ import { PriceValueType } from '../../../@types';
 // Define a type for the slice state
 export interface IFilterState {
   activeSort: string;
+  activeBrand: number;
   activeCategory: number;
   activeColor: number;
   activeSize: number;
@@ -18,6 +19,7 @@ export interface IFilterState {
 const initialState: IFilterState = {
   activeSort: '-rating',
   activeCategory: 0,
+  activeBrand: 0,
   activeColor: 0,
   activeSize: 0,
   activePrice: {
@@ -37,6 +39,9 @@ export const filterSlice = createSlice({
     },
     setActiveCategory: (state, action: PayloadAction<number>) => {
       state.activeCategory = action.payload;
+    },
+    setActiveBrand: (state, action: PayloadAction<number>) => {
+      state.activeBrand = action.payload;
     },
     setActiveColor: (state, action: PayloadAction<number>) => {
       state.activeColor = action.payload;
@@ -68,6 +73,7 @@ export const filterSlice = createSlice({
 export const {
   setActiveSort,
   setActiveCategory,
+  setActiveBrand,
   setActiveColor,
   setActivePrice,
   setActiveSize,

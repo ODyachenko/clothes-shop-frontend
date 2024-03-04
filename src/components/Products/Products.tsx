@@ -13,6 +13,7 @@ const Products: FC = () => {
   const {
     activeSort,
     activeCategory,
+    activeBrand,
     activeColor,
     activeSize,
     activePrice,
@@ -29,6 +30,7 @@ const Products: FC = () => {
     const queryObj: QueryObj = {
       ordering: activeSort,
       category: activeCategory,
+      brand: activeBrand,
       colors: activeColor,
       sizes: activeSize,
       min_price: activePrice.min,
@@ -55,7 +57,7 @@ const Products: FC = () => {
     <main className="products w-full">
       <div className="products__inner flex items-center justify-between mb-5">
         <h1 className="products__title font-bold text-2xl lg:text-3xl">
-          Casual
+          Men's Clothing
         </h1>
         <div className="products__info flex items-center gap-3">
           <span className="text-text-o text-sm sm:text-base">

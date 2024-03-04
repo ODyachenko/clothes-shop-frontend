@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { useGetCartQuery } from '../../redux/API/cartAPI';
 import { setCartList } from '../../redux/slices/cartSlice';
@@ -30,12 +30,12 @@ const Nav: FC = () => {
     <nav className="nav relative py-6 border-b border-solid border-border-10">
       <div className="nav__wrapper container flex items-center justify-between gap-4 lg:gap-10 lg:justify-start">
         <Burger isActive={isActive} setIsActive={setIsActive} />
-        <Link
+        <NavLink
           className="nav__brand font-integral text-2xl font-bold mr-auto lg:text-3xl lg:mr-0"
           to={'/'}
         >
           SHOP.CO
-        </Link>
+        </NavLink>
         <div
           onClick={() => setIsActive(false)}
           className={`nav__content ${isActive ? 'active' : ''}`}
@@ -43,7 +43,7 @@ const Nav: FC = () => {
           <NavList />
         </div>
         <SearchField />
-        <Link className="nav__cart" to={'/cart'}>
+        <NavLink className="nav__cart" to={'/cart'}>
           <svg
             width="24px"
             height="24px"
@@ -64,8 +64,8 @@ const Nav: FC = () => {
           {!!cartList.length && (
             <span className="nav__cart-count">{cartList.length}</span>
           )}
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           className="nav__account"
           to={`${isAuth ? '/account/profile' : '/login'}`}
         >
@@ -81,7 +81,7 @@ const Nav: FC = () => {
               fill="black"
             />
           </svg>
-        </Link>
+        </NavLink>
         <div className={`nav__overflow ${isActive ? 'active' : ''}`}></div>
       </div>
     </nav>

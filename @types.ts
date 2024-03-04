@@ -185,6 +185,7 @@ export type FAQType = {
 export type QueryObj = {
   ordering: string;
   category: number;
+  brand: number;
   colors: number;
   sizes: number;
   min_price: number;
