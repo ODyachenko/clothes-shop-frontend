@@ -193,6 +193,7 @@ export type QueryObj = {
   ordering: string;
   category: number;
   brand: number;
+  dress_style: number;
   colors: number;
   sizes: number;
   min_price: number;

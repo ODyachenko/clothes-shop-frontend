@@ -5,7 +5,7 @@ import { setCurrentPage } from '../../redux/slices/filterSlice';
 import './styles.scss';
 
 const Pagination: FC = () => {
-  const { currentPage } = useAppSelector((state) => state.filter);
+  const { page } = useAppSelector((state) => state.filter);
   const { productsCount } = useAppSelector((state) => state.product);
   const pageCount = Math.ceil(productsCount / 6);
   const dispatch = useAppDispatch();
@@ -17,7 +17,7 @@ const Pagination: FC = () => {
   return productsCount > 6 ? (
     <ReactPaginate
       className="pagination"
-      forcePage={currentPage - 1}
+      forcePage={page - 1}
       breakLabel="..."
       nextLabel="Next"
       onPageChange={(event) => onChangePage(event.selected + 1)}

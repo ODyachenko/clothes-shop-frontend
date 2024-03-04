@@ -7,13 +7,11 @@ import { setActiveColor } from '../../redux/slices/filterSlice';
 
 const Colors: FC = () => {
   const { data, isLoading, error } = useGetColorsQuery('');
-  const { activeColor } = useAppSelector((state) => state.filter);
+  const { colors } = useAppSelector((state) => state.filter);
   const dispatch = useAppDispatch();
 
   const onClickHandler = (id: number) => {
-    id === activeColor
-      ? dispatch(setActiveColor(0))
-      : dispatch(setActiveColor(id));
+    id === colors ? dispatch(setActiveColor(0)) : dispatch(setActiveColor(id));
   };
 
   return (
@@ -21,7 +19,7 @@ const Colors: FC = () => {
       {data && (
         <ColorsList
           colors={data.results}
-          state={activeColor}
+          state={colors}
           handler={onClickHandler}
         />
       )}

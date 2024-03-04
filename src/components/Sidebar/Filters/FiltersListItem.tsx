@@ -4,11 +4,11 @@ import { setActiveCategory } from '../../../redux/slices/filterSlice';
 import { FiltersType } from '../../../../@types';
 
 const FiltersListItem: FC<FiltersType> = ({ id, name }) => {
-  const { activeCategory } = useAppSelector((state) => state.filter);
+  const { category } = useAppSelector((state) => state.filter);
   const dispatch = useAppDispatch();
 
   const onClickHandler = (id: number) => {
-    id === activeCategory
+    id === category
       ? dispatch(setActiveCategory(0))
       : dispatch(setActiveCategory(id));
   };
@@ -18,7 +18,7 @@ const FiltersListItem: FC<FiltersType> = ({ id, name }) => {
       <label className="flex items-center gap-3">
         <input
           onChange={() => onClickHandler(id)}
-          checked={id === activeCategory}
+          checked={id === category}
           name="filters"
           type="checkbox"
           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"

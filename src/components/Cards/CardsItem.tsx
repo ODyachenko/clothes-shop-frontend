@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { ProductType } from '../../../@types';
-import stars from '../../assets/img/stars.png';
 import Rating from '../Rating/Rating';
 
 const CardsItem: FC<ProductType> = ({ id, name, rating, price, images }) => {

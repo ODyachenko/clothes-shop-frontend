@@ -5,28 +5,30 @@ import { PriceValueType } from '../../../@types';
 
 // Define a type for the slice state
 export interface IFilterState {
-  activeSort: string;
-  activeBrand: number;
-  activeCategory: number;
-  activeColor: number;
-  activeSize: number;
+  category: number;
+  brand: number;
+  dress_style: number;
+  colors: number;
+  sizes: number;
+  ordering: string;
   activePrice: PriceValueType;
-  currentPage: number;
+  page: number;
   isFilterApplied: boolean;
 }
 
 // Define the initial state using that type
 const initialState: IFilterState = {
-  activeSort: '-rating',
-  activeCategory: 0,
-  activeBrand: 0,
-  activeColor: 0,
-  activeSize: 0,
+  ordering: '-rating',
+  category: 0,
+  brand: 0,
+  dress_style: 0,
+  colors: 0,
+  sizes: 0,
   activePrice: {
     min: 0,
     max: 1000,
   },
-  currentPage: 1,
+  page: 1,
   isFilterApplied: false,
 };
 
@@ -35,19 +37,22 @@ export const filterSlice = createSlice({
   initialState,
   reducers: {
     setActiveSort: (state, action: PayloadAction<string>) => {
-      state.activeSort = action.payload;
+      state.ordering = action.payload;
     },
     setActiveCategory: (state, action: PayloadAction<number>) => {
-      state.activeCategory = action.payload;
+      state.category = action.payload;
     },
     setActiveBrand: (state, action: PayloadAction<number>) => {
-      state.activeBrand = action.payload;
+      state.brand = action.payload;
+    },
+    setActiveStyle: (state, action: PayloadAction<number>) => {
+      state.dress_style = action.payload;
     },
     setActiveColor: (state, action: PayloadAction<number>) => {
-      state.activeColor = action.payload;
+      state.colors = action.payload;
     },
     setActiveSize: (state, action: PayloadAction<number>) => {
-      state.activeSize = action.payload;
+      state.sizes = action.payload;
     },
     setActivePrice: (state, action: PayloadAction<PriceValueType>) => {
       state.activePrice = action.payload;
@@ -56,12 +61,14 @@ export const filterSlice = createSlice({
       state.isFilterApplied = !state.isFilterApplied;
     },
     setCurrentPage: (state, action: PayloadAction<number>) => {
-      state.currentPage = action.payload;
+      state.page = action.payload;
     },
     setDefaultState: (state) => {
-      state.activeCategory = 0;
-      state.activeColor = 0;
-      state.activeSize = 0;
+      state.category = 0;
+      state.colors = 0;
+      state.brand = 0;
+      state.dress_style = 0;
+      state.sizes = 0;
       state.activePrice = {
         min: 0,
         max: 1000,
@@ -80,5 +87,6 @@ export const {
   setCurrentPage,
   setIsFilterApplied,
   setDefaultState,
+  setActiveStyle,
 } = filterSlice.actions;
 export default filterSlice.reducer;

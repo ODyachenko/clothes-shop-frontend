@@ -1,51 +1,35 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import qs from 'qs';
 import { useGetProductsQuery } from '../../redux/API/productsAPI';
 import CardsList from '../Cards/CardsList';
 import Pagination from '../Pagination/Pagination';
 import Sorting from '../Sorting/Sorting';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { QueryObj } from '../../../@types';
 import { setProductsCount } from '../../redux/slices/productSlice';
+import { createQueryObj } from '../../utils/createQueryObj';
+import { setDefaultState } from '../../redux/slices/filterSlice';
+import CardSkelleton from '../Cards/CardSkelleton';
+import SkelletonsList from '../Cards/SkelletonsList';
 
 const Products: FC = () => {
-  const {
-    activeSort,
-    activeCategory,
-    activeBrand,
-    activeColor,
-    activeSize,
-    activePrice,
-    currentPage,
-    isFilterApplied,
-  } = useAppSelector((state) => state.filter);
+  const filterObj = useAppSelector((state) => state.filter);
+  const { ordering, page, isFilterApplied } = useAppSelector(
+    (state) => state.filter
+  );
   const [queryString, setQueryString] = useState<string>('');
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
   const { data, isLoading, error } = useGetProductsQuery(queryString);
 
   useEffect(() => {
-    const queryObj: QueryObj = {
-      ordering: activeSort,
-      category: activeCategory,
-      brand: activeBrand,
-      colors: activeColor,
-      sizes: activeSize,
-      min_price: activePrice.min,
-      max_price: activePrice.max,
-      page: currentPage,
-    };
-
-    const filteredQueryObj = Object.fromEntries(
-      Object.entries(queryObj).filter(([_, value]) => value !== 0)
-    );
-
-    setQueryString(qs.stringify(filteredQueryObj));
-
+    setQueryString(createQueryObj(filterObj));
     navigate(`?${queryString}`);
-  }, [isFilterApplied, queryString, activeSort, currentPage]);
+
+    return () => {
+      // dispatch(setDefaultState());
+      console.log('unmount');
+    };
+  }, [isFilterApplied, queryString, ordering, page]);
 
   useEffect(() => {
     if (data) {
@@ -69,7 +53,7 @@ const Products: FC = () => {
       {error ? (
         <p>Oh no, there was an error</p>
       ) : isLoading ? (
-        <span>Loading...</span>
+        <SkelletonsList className="grid gap-5 lg:grid-cols-3" />
       ) : data ? (
         <CardsList
           productsList={data.results}
