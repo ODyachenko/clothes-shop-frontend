@@ -1,5 +1,6 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { RangeSliderType } from '../../../@types';
+
 import './styles.scss';
 
 const RangeSlider: FC<RangeSliderType> = ({

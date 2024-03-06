@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Slider from 'react-slick';
 import { ProductType } from '../../../@types';
 import CardsItem from './CardsItem';
@@ -9,7 +9,6 @@ type CardListProps = {
 
 const settings = {
   dots: true,
-  // arrows: false,
   infinite: true,
   speed: 500,
   slidesToShow: 2,

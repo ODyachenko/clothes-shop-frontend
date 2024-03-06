@@ -1,10 +1,10 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useCreateUserMutation } from '../../redux/API/usersAPI';
 import BackButton from '../../UI/BackButton';
-import Btn from '../../UI/Btn';
 import Field from '../../UI/Field';
+import Btn from '../../UI/Btn';
+import { useCreateUserMutation } from '../../redux/API/usersAPI';
 
 type Inputs = {
   first_name: string;

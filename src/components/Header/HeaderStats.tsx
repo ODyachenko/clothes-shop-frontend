@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { headerStats } from '../../data/headerStats';
+import { FC } from 'react';
 import HeaderStatsItem from './HeaderStatsItem';
+import { headerStats } from '../../data/headerStats';
 
 const HeaderStats: FC = () => {
   return (

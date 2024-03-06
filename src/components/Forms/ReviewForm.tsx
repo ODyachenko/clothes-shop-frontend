@@ -1,14 +1,14 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 import { useParams } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { ReviewFormType } from '../../../@types';
+import { useAppDispatch } from '../../hooks/hooks';
 import { usePostReviewMutation } from '../../redux/API/reviewsAPI';
+import { setShowReviewForm } from '../../redux/slices/reviewSlice';
 import Btn from '../../UI/Btn';
 import TextArea from '../../UI/TextArea';
 import RatingStars from '../../UI/RatingStars';
-import { useAppDispatch } from '../../hooks/hooks';
-import { setShowReviewForm } from '../../redux/slices/reviewSlice';
+import { ReviewFormType } from '../../../@types';
 
 const ReviewForm: FC = () => {
   const {
@@ -17,7 +17,7 @@ const ReviewForm: FC = () => {
     reset,
     formState: { errors },
   } = useForm<ReviewFormType>({ reValidateMode: 'onChange' });
-  const [createReview, { isLoading, error }] = usePostReviewMutation();
+  const [createReview, { isLoading }] = usePostReviewMutation();
   const [rating, setRating] = useState<number>(0);
   const { id } = useParams();
   const dispatch = useAppDispatch();

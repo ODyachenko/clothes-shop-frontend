@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { ProductSizeType } from '../../../@types';
+import { FC } from 'react';
 import SizesListItem from './SizesListItem';
+import { ProductSizeType } from '../../../@types';
 
 type SizesListProps = {
   sizes: ProductSizeType[];

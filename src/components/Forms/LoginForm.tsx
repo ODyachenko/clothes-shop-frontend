@@ -1,12 +1,12 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import BackButton from '../../UI/BackButton';
-import Btn from '../../UI/Btn';
-import Field from '../../UI/Field';
 import { useLoginUserMutation } from '../../redux/API/usersAPI';
 import { useAppDispatch } from '../../hooks/hooks';
 import { setIsAuth } from '../../redux/slices/userSlice';
+import BackButton from '../../UI/BackButton';
+import Field from '../../UI/Field';
+import Btn from '../../UI/Btn';
 import { LoginUserType } from '../../../@types';
 
 const LoginForm: FC = () => {

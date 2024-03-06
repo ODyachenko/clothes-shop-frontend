@@ -1,10 +1,9 @@
-import React, { FC, Fragment, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { FC, Fragment, useEffect, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
-import { sortingList } from '../../data/sortingList';
 import SortingListItem from './SortingListItem';
 import { useAppDispatch } from '../../hooks/hooks';
 import { setActiveSort } from '../../redux/slices/filterSlice';
+import { sortingList } from '../../data/sortingList';
 
 const Sorting: FC = () => {
   const [selected, setSelected] = useState<number>(0);
@@ -12,7 +11,7 @@ const Sorting: FC = () => {
 
   useEffect(() => {
     dispatch(setActiveSort(sortingList[selected].slug));
-  }, [selected]);
+  }, [selected, dispatch]);
 
   return (
     <Menu as="div" className="relative inline-block text-left">

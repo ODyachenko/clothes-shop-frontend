@@ -1,7 +1,7 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Gallery from '../components/Gallery/Gallery';
 import Layout from '../components/Layout/Layout';
+import Gallery from '../components/Gallery/Gallery';
 import ProductDetails from '../components/Product/ProductDetails';
 import ProductFAQ from '../components/Product/ProductFAQ/ProductFAQ';
 import ProductInfo from '../components/Product/ProductInfo';
@@ -31,7 +31,7 @@ const conditionalRender: ConditionalRenderType = {
 
 const ProductPage: FC = () => {
   const { id } = useParams();
-  const { data, isLoading, error } = useGetProductByIdQuery(String(id));
+  const { data } = useGetProductByIdQuery(String(id));
   const { activeTab } = useAppSelector((state) => state.product);
   const dispatch = useAppDispatch();
 
@@ -48,7 +48,7 @@ const ProductPage: FC = () => {
         )
       );
     }
-  }, [data]);
+  }, [data, dispatch]);
 
   return (
     <Layout>

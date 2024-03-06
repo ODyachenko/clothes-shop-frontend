@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import ColorsList from '../Colors/ColorsList';
 import SidebarCategory from './SidebarCategory';
-import { useGetColorsQuery } from '../../redux/API/productsAPI';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { useGetColorsQuery } from '../../redux/API/productsAPI';
 import { setActiveColor } from '../../redux/slices/filterSlice';
 
 const Colors: FC = () => {
-  const { data, isLoading, error } = useGetColorsQuery('');
+  const { data } = useGetColorsQuery('');
   const { colors } = useAppSelector((state) => state.filter);
   const dispatch = useAppDispatch();
 

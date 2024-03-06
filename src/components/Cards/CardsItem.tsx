@@ -1,13 +1,13 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { ProductType } from '../../../@types';
 import Rating from '../Rating/Rating';
+import { ProductType } from '../../../@types';
 
 const CardsItem: FC<ProductType> = ({ id, name, rating, price, images }) => {
   return (
     <Link
       to={`/products/${id}`}
-      className="cards-list__item card mx-4 cursor-pointer rounded-2xl hover:shadow-card-shadow lg:transition-all lg:duration-300 lg:mx-0"
+      className="cards-list__item card cursor-pointer rounded-2xl hover:shadow-card-shadow lg:transition-all lg:duration-300"
     >
       <div className="card__header shadow-card-sh mb-4 p-1 rounded-2xl ">
         {images && <img className="mx-auto" src={images[0].image} alt={name} />}

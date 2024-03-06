@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BrandsType } from '../../../@types';
 import { useAppDispatch } from '../../hooks/hooks';
 import { setActiveBrand } from '../../redux/slices/filterSlice';
+import { BrandsType } from '../../../@types';
 
 const BrandsListItem: FC<BrandsType> = ({ id, name, logo }) => {
   const dispatch = useAppDispatch();

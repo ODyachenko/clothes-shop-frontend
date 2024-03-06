@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import Btn from '../../UI/Btn';
 import HeaderStats from './HeaderStats';
+import Btn from '../../UI/Btn';
+
 import headerImg_mob from '../../assets/img/header_mob.png';
 import headerImg_desc from '../../assets/img/header.png';
 

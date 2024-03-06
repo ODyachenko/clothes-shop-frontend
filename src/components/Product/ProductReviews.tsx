@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { setShowReviewForm } from '../../redux/slices/reviewSlice';
-import Btn from '../../UI/Btn';
+import { FC } from 'react';
 import ReviewForm from '../Forms/ReviewForm';
 import ReviewsList from '../Reviews/ReviewsList';
 import Sorting from '../Sorting/Sorting';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { setShowReviewForm } from '../../redux/slices/reviewSlice';
+import Btn from '../../UI/Btn';
 
 const ProductReviews: FC = () => {
   const { reviews } = useAppSelector((state) => state.product.currentProduct);

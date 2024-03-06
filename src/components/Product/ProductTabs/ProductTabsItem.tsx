@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { ProductTabType } from '../../../../@types';
+import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
 import { setActiveTab } from '../../../redux/slices/productSlice';
+import { ProductTabType } from '../../../../@types';
 
 const ProductTabsItem: FC<ProductTabType> = ({ id, value }) => {
   const { activeTab } = useAppSelector((state) => state.product);

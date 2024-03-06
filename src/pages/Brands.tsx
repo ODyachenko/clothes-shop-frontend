@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { Wrapper } from '../components/Wrapper/Wrapper';
 import BrandsList from '../components/Brands/BrandsList';
 import Layout from '../components/Layout/Layout';
-import { Wrapper } from '../components/Wrapper/Wrapper';
 
 const Brands: FC = () => {
   return (

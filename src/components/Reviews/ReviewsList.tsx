@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { ReviewType } from '../../../@types';
 import ReviewsListItem from './ReviewsListItem';
+import { ReviewType } from '../../../@types';
 
 type ReviewsListProps = {
   reviews: ReviewType[];

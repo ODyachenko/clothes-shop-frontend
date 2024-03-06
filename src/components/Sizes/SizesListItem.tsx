@@ -1,5 +1,4 @@
-import React, { FC } from 'react';
-import { ProductSizeType } from '../../../@types';
+import { FC } from 'react';
 import OptionBtn from '../../UI/OptionBtn';
 
 type SizesListItemProps = {

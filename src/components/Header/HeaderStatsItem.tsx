@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { HeaderStatsType } from '../../../@types';
 
 const HeaderStatsItem: FC<HeaderStatsType> = ({ name, value }) => {

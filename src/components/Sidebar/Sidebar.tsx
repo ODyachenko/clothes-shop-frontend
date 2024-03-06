@@ -1,13 +1,13 @@
-import React, { FC, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { setIsFilterApplied } from '../../redux/slices/filterSlice';
-import { setShowFilterList } from '../../redux/slices/productSlice';
-import Btn from '../../UI/Btn';
-import CloseBtn from '../../UI/CloseBtn';
+import { FC } from 'react';
 import Colors from './Colors';
 import Filters from './Filters/Filters';
 import Prices from './Prices';
 import Sizes from './Sizes';
+import Btn from '../../UI/Btn';
+import CloseBtn from '../../UI/CloseBtn';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { setIsFilterApplied } from '../../redux/slices/filterSlice';
+import { setShowFilterList } from '../../redux/slices/productSlice';
 
 const Sidebar: FC = () => {
   const { showFilterList } = useAppSelector((state) => state.product);
@@ -28,7 +28,7 @@ const Sidebar: FC = () => {
         showFilterList ? 'bottom-0' : '-bottom-full'
       } left-0 right-0 z-20 transition-all duration-700 overflow-auto max-h-sidebar-h lg:static lg:max-h-none lg:max-w-sidebar-w`}
     >
-      <CloseBtn className="ml-auto mb-2" handler={onClickCloseBtn} />
+      <CloseBtn className="ml-auto mb-2 lg:hidden" handler={onClickCloseBtn} />
       <Filters />
       <Prices />
       <Colors />

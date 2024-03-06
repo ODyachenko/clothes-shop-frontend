@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { UserInfoType } from '../../../@types';
-import { clearEmptyValues } from '../../utils/clearEmptyValues';
 import PaymantInfo from '../ProfileCategories/PaymantInfo';
 import PersonalInfo from '../ProfileCategories/PersonalInfo';
 import ProfileActions from '../ProfileCategories/ProfileActions';
 import ShipmantInfo from '../ProfileCategories/ShipmantInfo';
+import { clearEmptyValues } from '../../utils/clearEmptyValues';
+import { UserInfoType } from '../../../@types';
 
 const ProfileForm: FC = () => {
   const {

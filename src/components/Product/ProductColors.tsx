@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import ColorsList from '../Colors/ColorsList';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { setCartItemColor } from '../../redux/slices/cartSlice';
-import ColorsList from '../Colors/ColorsList';
 
 const ProductColors: FC = () => {
   const { colors } = useAppSelector((state) => state.product.currentProduct);

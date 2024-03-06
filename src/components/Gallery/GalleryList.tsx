@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
-// import { productsImages } from '../../data/productsImages';
 import GalleryImg from './GalleryImg';
 
 type GalleryListProps = {

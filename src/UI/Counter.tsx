@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { CounterType } from '../../@types';
 
 const Counter: FC<CounterType> = ({ state, setState, maxValue }) => {

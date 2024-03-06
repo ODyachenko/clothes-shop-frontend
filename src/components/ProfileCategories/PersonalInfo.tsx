@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { ProfileHookFormType } from '../../../@types';
+import { FC } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
+import { ProfileHookFormType } from '../../../@types';
 
 const PersonalInfo: FC<ProfileHookFormType> = ({ register, errors }) => {
   const { currentUser } = useAppSelector((state) => state.user);

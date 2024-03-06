@@ -1,9 +1,9 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import CartList from '../components/Cart/CartList';
-import CartSummary from '../components/Cart/CartSummary';
 import Layout from '../components/Layout/Layout';
 import { Wrapper } from '../components/Wrapper/Wrapper';
+import CartList from '../components/Cart/CartList';
+import CartSummary from '../components/Cart/CartSummary';
 import { useAppSelector } from '../hooks/hooks';
 
 const Cart: FC = () => {

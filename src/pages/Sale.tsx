@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
-import CardsList from '../components/Cards/CardsList';
-import SkelletonsList from '../components/Cards/SkelletonsList';
+import { FC } from 'react';
 import Layout from '../components/Layout/Layout';
 import { Wrapper } from '../components/Wrapper/Wrapper';
+import CardsList from '../components/Cards/CardsList';
+import SkelletonsList from '../components/Cards/SkelletonsList';
 import { useGetOnSaleProductsQuery } from '../redux/API/productsAPI';
 
 const Sale: FC = () => {
-  const { data, isLoading, error } = useGetOnSaleProductsQuery('');
+  const { data, isLoading } = useGetOnSaleProductsQuery('');
 
   return (
     <Layout>
@@ -14,10 +14,10 @@ const Sale: FC = () => {
         {data ? (
           <CardsList
             productsList={data.results}
-            className="sm:grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+            className="min-[480px]:grid gap-5 min-[480px]:grid-cols-2 lg:grid-cols-4"
           />
         ) : isLoading ? (
-          <SkelletonsList className="sm:grid gap-5 sm:grid-cols-2 lg:grid-cols-4" />
+          <SkelletonsList className="min-[480px]:grid gap-5 min-[480px]:grid-cols-2 lg:grid-cols-4" />
         ) : (
           <p>Ooops something wrong!</p>
         )}

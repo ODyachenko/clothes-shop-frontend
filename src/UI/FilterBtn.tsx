@@ -1,14 +1,15 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 type FilterBtnType = {
   handler: () => void;
+  className?: string;
 };
 
-const FilterBtn: FC<FilterBtnType> = ({ handler }) => {
+const FilterBtn: FC<FilterBtnType> = ({ handler, className }) => {
   return (
     <button
       onClick={handler}
-      className="w-12 h-12 rounded-3xl flex items-center justify-center transition-all hover:bg-search-bg"
+      className={`w-12 h-12 rounded-3xl flex items-center justify-center transition-all hover:bg-search-bg ${className}`}
     >
       <svg
         width="24"

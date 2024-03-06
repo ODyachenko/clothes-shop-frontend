@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
-import { productSizes } from '../../data/productSizes';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { setActiveSize } from '../../redux/slices/filterSlice';
+import { FC } from 'react';
 import SizesList from '../Sizes/SizesList';
 import SidebarCategory from './SidebarCategory';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { setActiveSize } from '../../redux/slices/filterSlice';
+import { productSizes } from '../../data/productSizes';
 
 const Sizes: FC = () => {
   const { sizes } = useAppSelector((state) => state.filter);

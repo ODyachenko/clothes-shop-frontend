@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { productTabs } from '../../../data/productTabs';
+import { FC } from 'react';
 import ProductTabsItem from './ProductTabsItem';
+import { productTabs } from '../../../data/productTabs';
 
 const ProductTabs: FC = () => {
   return (

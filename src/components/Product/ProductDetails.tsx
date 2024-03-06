@@ -1,7 +1,7 @@
-import React from 'react';
+import { FC } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 
-const ProductDetails = () => {
+const ProductDetails: FC = () => {
   const { details } = useAppSelector((state) => state.product.currentProduct);
 
   return details?.length ? (

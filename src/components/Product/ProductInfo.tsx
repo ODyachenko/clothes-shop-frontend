@@ -1,6 +1,9 @@
 import { FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BeatLoader } from 'react-spinners';
+import Rating from '../Rating/Rating';
+import ProductColors from './ProductColors';
+import ProductSizes from './ProductSizes';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { usePostToCartMutation } from '../../redux/API/cartAPI';
 import { setCartItemQuantity } from '../../redux/slices/cartSlice';
@@ -8,20 +11,17 @@ import { setActiveTab } from '../../redux/slices/productSlice';
 import Btn from '../../UI/Btn';
 import Counter from '../../UI/Counter';
 import { calculateDiscountPrice } from '../../utils/calculateDiscountPrice';
-import Rating from '../Rating/Rating';
-import ProductColors from './ProductColors';
-import ProductSizes from './ProductSizes';
 
 const ProductInfo: FC = () => {
   const { currentProduct } = useAppSelector((state) => state.product);
   const { isAuth } = useAppSelector((state) => state.user);
   const { cartItem } = useAppSelector((state) => state.cart);
-  const [createCartItem, { isLoading, error }] = usePostToCartMutation();
+  const [createCartItem, { isLoading }] = usePostToCartMutation();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(setActiveTab(1));
-  }, []);
+  }, [dispatch]);
 
   const onClickHandler = () => {
     !Object.values(cartItem).some((value) => value === 0)

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { FieldType } from '../../@types';
 
 const Field: FC<FieldType> = ({

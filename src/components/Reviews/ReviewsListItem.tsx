@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { ReviewType } from '../../../@types';
+import { FC } from 'react';
 import Rating from '../Rating/Rating';
+import { ReviewType } from '../../../@types';
 
 const ReviewsListItem: FC<ReviewType> = ({ user, rating, text, create_at }) => {
   return (

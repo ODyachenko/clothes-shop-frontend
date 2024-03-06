@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import Cards from 'react-credit-cards-2';
-import { ProfileHookFormType } from '../../../@types';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { setCurrentUser } from '../../redux/slices/userSlice';
+import { ProfileHookFormType } from '../../../@types';
 
 const PaymantInfo: FC<ProfileHookFormType> = ({ register, errors }) => {
   const { currentUser } = useAppSelector((state) => state.user);

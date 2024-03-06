@@ -1,5 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-import { CartType } from '../../../@types';
+import { FC, useEffect, useRef, useState } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import {
   useDeleteCartItemMutation,
@@ -16,7 +15,7 @@ const CartItem: FC<any> = ({
   total_price,
   quantity,
 }) => {
-  const [deleteItem, { isLoading, error }] = useDeleteCartItemMutation();
+  const [deleteItem] = useDeleteCartItemMutation();
   const [updateItem] = useUpdateCartQuantityMutation();
   const { cartItem } = useAppSelector((state) => state.cart);
   const [productQuantity, setProductQuantity] = useState<number>(quantity);
@@ -33,7 +32,7 @@ const CartItem: FC<any> = ({
       updateItem({ id, body: { quantity: productQuantity } });
       btnRef.current = false;
     }
-  }, [productQuantity]);
+  }, [productQuantity, updateItem, id]);
 
   const onChangeQuantity = (value: number) => {
     setProductQuantity(value);

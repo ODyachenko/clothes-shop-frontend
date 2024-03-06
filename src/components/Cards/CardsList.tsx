@@ -1,8 +1,6 @@
 import React, { FC } from 'react';
-import Slider from 'react-slick';
-import { ProductType } from '../../../@types';
-import SecondaryBtn from '../../UI/SecondaryBtn';
 import CardsItem from './CardsItem';
+import { ProductType } from '../../../@types';
 
 type CardListProps = {
   productsList: ProductType[];

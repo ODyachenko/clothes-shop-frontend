@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import SizesList from '../Sizes/SizesList';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { setCartItemSize } from '../../redux/slices/cartSlice';
-import SizesList from '../Sizes/SizesList';
 
 const ProductSizes: FC = () => {
   const { sizes } = useAppSelector((state) => state.product.currentProduct);

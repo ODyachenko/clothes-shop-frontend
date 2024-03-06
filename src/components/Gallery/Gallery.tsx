@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react';
-import { useAppSelector } from '../../hooks/hooks';
+import { FC, useState } from 'react';
 import GalleryList from './GalleryList';
+import { useAppSelector } from '../../hooks/hooks';
 
 const Gallery: FC = () => {
   const [imgIdx, setImgIdx] = useState<number>(0);

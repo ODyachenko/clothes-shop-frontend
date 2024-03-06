@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
-import { FiltersType } from '../../../../@types';
-import { useGetCategoriesQuery } from '../../../redux/API/productsAPI';
+import { FC } from 'react';
 import FiltersListItem from './FiltersListItem';
+import { useGetCategoriesQuery } from '../../../redux/API/productsAPI';
+import { FiltersType } from '../../../../@types';
 
 const FiltersList: FC = () => {
-  const { data, isLoading, error } = useGetCategoriesQuery('');
+  const { data } = useGetCategoriesQuery('');
 
   return (
     <ul className="filters__list text-text-o">

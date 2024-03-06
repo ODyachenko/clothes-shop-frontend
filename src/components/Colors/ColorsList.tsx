@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import { ProductColorsType } from '../../../@types';
 import ColorsListItem from './ColorsListItem';
+import { ProductColorsType } from '../../../@types';
+
 import './styles.scss';
 
 type ColorsListProps = {

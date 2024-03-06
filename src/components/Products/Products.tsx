@@ -1,19 +1,17 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGetProductsQuery } from '../../redux/API/productsAPI';
 import CardsList from '../Cards/CardsList';
 import Pagination from '../Pagination/Pagination';
 import Sorting from '../Sorting/Sorting';
+import SkelletonsList from '../Cards/SkelletonsList';
+import FilterBtn from '../../UI/FilterBtn';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import {
   setProductsCount,
   setShowFilterList,
 } from '../../redux/slices/productSlice';
 import { createQueryObj } from '../../utils/createQueryObj';
-import { setDefaultState } from '../../redux/slices/filterSlice';
-import CardSkelleton from '../Cards/CardSkelleton';
-import SkelletonsList from '../Cards/SkelletonsList';
-import FilterBtn from '../../UI/FilterBtn';
 
 const Products: FC = () => {
   const filterObj = useAppSelector((state) => state.filter);
@@ -35,13 +33,13 @@ const Products: FC = () => {
       // dispatch(setDefaultState());
       console.log('unmount');
     };
-  }, [isFilterApplied, queryString, ordering, page]);
+  }, [isFilterApplied, queryString, ordering, page, filterObj, navigate]);
 
   useEffect(() => {
     if (data) {
       dispatch(setProductsCount(data.count));
     }
-  }, [data]);
+  }, [data, dispatch]);
 
   const onClickFilter = () => {
     dispatch(setShowFilterList(true));
@@ -58,7 +56,7 @@ const Products: FC = () => {
             Showing {data?.results.length} of {data?.count}
           </span>
           <Sorting />
-          <FilterBtn handler={onClickFilter} />
+          <FilterBtn handler={onClickFilter} className={'lg:hidden'} />
         </div>
       </div>
       {error ? (
@@ -68,7 +66,7 @@ const Products: FC = () => {
       ) : data ? (
         <CardsList
           productsList={data.results}
-          className="grid gap-5 lg:grid-cols-3"
+          className="grid gap-5 min-[480px]:grid-cols-2 lg:grid-cols-3"
           element={<Pagination />}
         />
       ) : null}

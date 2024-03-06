@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
-import { useGetTopReviewsQuery } from '../../redux/API/reviewsAPI';
+import { FC } from 'react';
 import { Wrapper } from '../Wrapper/Wrapper';
 import ReviewsSlider from './ReviewsSlider';
+import { useGetTopReviewsQuery } from '../../redux/API/reviewsAPI';
 
-const Reviews = () => {
+const Reviews: FC = () => {
   const { data, isLoading, error } = useGetTopReviewsQuery('');
 
   return data ? (

@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { BrandsType } from '../../../@types';
-import { useGetBrandsQuery } from '../../redux/API/brandsAPI';
+import { FC } from 'react';
 import BrandsListItem from './BrandsListItem';
+import { useGetBrandsQuery } from '../../redux/API/brandsAPI';
+import { BrandsType } from '../../../@types';
 
 const BrandsList: FC = () => {
   const { data, isLoading, error } = useGetBrandsQuery('');

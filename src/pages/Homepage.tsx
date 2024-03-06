@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Advertising from '../components/Advertising/Advertising';
 import Banner from '../components/Banner/Banner';
 import Browse from '../components/Browse/Browse';

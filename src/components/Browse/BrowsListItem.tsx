@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BannerType } from '../../../@types';
 import { useAppDispatch } from '../../hooks/hooks';
 import { setActiveStyle } from '../../redux/slices/filterSlice';
+import { BannerType } from '../../../@types';
 
 const BrowsListItem: FC<BannerType> = ({ id, name, path }) => {
   const dispatch = useAppDispatch();

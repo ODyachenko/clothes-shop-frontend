@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RegisterForm from '../components/Forms/RegisterForm';
 import { useAppSelector } from '../hooks/hooks';
@@ -9,7 +9,7 @@ const Register: FC = () => {
 
   useEffect(() => {
     isAuth && navigate('/');
-  }, [isAuth]);
+  }, [isAuth, navigate]);
 
   return (
     <div className="register py-6 lg:py-14">

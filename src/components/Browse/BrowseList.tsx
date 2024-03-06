@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { browseCategories } from '../../data/browseCategories';
+import { FC } from 'react';
 import BrowsListItem from './BrowsListItem';
+import { browseCategories } from '../../data/browseCategories';
 
 const BrowseList: FC = () => {
   return (

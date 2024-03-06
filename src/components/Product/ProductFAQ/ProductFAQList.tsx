@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { FAQList } from '../../../data/FAQList';
+import { FC } from 'react';
 import ProductFAQListItem from './ProductFAQListItem';
+import { FAQList } from '../../../data/FAQList';
 
 const ProductFAQList: FC = () => {
   return (

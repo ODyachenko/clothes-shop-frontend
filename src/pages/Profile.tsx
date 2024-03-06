@@ -1,27 +1,27 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
 import { Wrapper } from '../components/Wrapper/Wrapper';
+import ProfileForm from '../components/Forms/ProfileForm';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { useGetUserInfoQuery } from '../redux/API/usersAPI';
 import { setCurrentUser } from '../redux/slices/userSlice';
-import ProfileForm from '../components/Forms/ProfileForm';
 
 const Profile: FC = () => {
-  const { data, isLoading, error } = useGetUserInfoQuery('');
+  const { data } = useGetUserInfoQuery('');
   const { isAuth } = useAppSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     !isAuth && navigate('/login');
-  }, [isAuth]);
+  }, [isAuth, navigate]);
 
   useEffect(() => {
     if (data) {
       dispatch(setCurrentUser(data));
     }
-  }, [data]);
+  }, [data, dispatch]);
 
   return (
     <Layout>

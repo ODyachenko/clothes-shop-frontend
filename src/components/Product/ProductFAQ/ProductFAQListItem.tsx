@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { FAQType } from '../../../../@types';
 
 const ProductFAQListItem: FC<FAQType> = ({ question, answer }) => {

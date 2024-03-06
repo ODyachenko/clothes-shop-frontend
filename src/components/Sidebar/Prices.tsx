@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
-import { PriceValueType } from '../../../@types';
+import { FC } from 'react';
+import SidebarCategory from './SidebarCategory';
+import RangeSlider from '../../UI/RangeSlider/RangeSlider';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { setActivePrice } from '../../redux/slices/filterSlice';
-import RangeSlider from '../../UI/RangeSlider/RangeSlider';
-import SidebarCategory from './SidebarCategory';
+import { PriceValueType } from '../../../@types';
 
 const Prices: FC = () => {
   const { activePrice } = useAppSelector((state) => state.filter);

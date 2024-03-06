@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import SidebarCategory from '../SidebarCategory';
+import FiltersList from './FiltersList';
+import FilterBtn from '../../../UI/FilterBtn';
 import { useAppDispatch } from '../../../hooks/hooks';
 import {
   setDefaultState,
   setIsFilterApplied,
 } from '../../../redux/slices/filterSlice';
-import FilterBtn from '../../../UI/FilterBtn';
-import SidebarCategory from '../SidebarCategory';
-import FiltersList from './FiltersList';
 
 const Filters: FC = () => {
   const dispatch = useAppDispatch();

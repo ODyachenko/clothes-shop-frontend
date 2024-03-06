@@ -1,5 +1,4 @@
-import React, { FC } from 'react';
-import { BtnPropsType } from '../../@types';
+import { FC } from 'react';
 
 type OptionBtnProps = {
   id: number;

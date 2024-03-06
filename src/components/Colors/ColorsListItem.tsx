@@ -1,5 +1,4 @@
-import React, { FC } from 'react';
-import { ProductColorsType } from '../../../@types';
+import { FC } from 'react';
 
 type ColorsListItemProps = {
   id: number;

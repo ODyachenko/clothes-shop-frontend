@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Menu } from '@headlessui/react';
-import { SortingType } from '../../../@types';
 import { classNames } from '../../utils/classNames';
 
 type SortingListItemProps = {

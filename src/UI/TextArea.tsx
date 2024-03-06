@@ -1,5 +1,4 @@
-import React, { FC } from 'react';
-import { RegisterOptions, FieldErrors } from 'react-hook-form';
+import { FC } from 'react';
 
 type TextAreaProps = {
   name: string;

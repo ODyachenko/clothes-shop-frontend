@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { useAppSelector } from '../../hooks/hooks';
+import { FC } from 'react';
 import CartItem from './CartItem';
+import { useAppSelector } from '../../hooks/hooks';
 
 const CartList: FC = () => {
   const { cartList } = useAppSelector((state) => state.cart);

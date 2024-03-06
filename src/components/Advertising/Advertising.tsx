@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useState } from 'react';
-import { ProductType } from '../../../@types';
-import SecondaryBtn from '../../UI/SecondaryBtn';
+import { FC, useEffect, useState } from 'react';
+import { Wrapper } from '../Wrapper/Wrapper';
 import CardsList from '../Cards/CardsList';
 import CardsSlider from '../Cards/CardsSlider';
-import { Wrapper } from '../Wrapper/Wrapper';
+import SecondaryBtn from '../../UI/SecondaryBtn';
+import { ProductType } from '../../../@types';
 
 type AdvertisingProps = {
   title: string;
@@ -22,13 +22,11 @@ const Advertising: FC<AdvertisingProps> = ({
 
   useEffect(() => {
     setWidth(window.innerWidth);
-
     const handlerResize = () => {
       setWidth(window.innerWidth);
     };
 
     window.addEventListener('resize', handlerResize);
-
     return () => {
       window.removeEventListener('resize', handlerResize);
     };
