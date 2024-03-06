@@ -14,10 +14,10 @@ const NewArrivals: FC = () => {
         {data ? (
           <CardsList
             productsList={data.results}
-            className="grid gap-5 grid-cols-4"
+            className="sm:grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
           />
         ) : isLoading ? (
-          <SkelletonsList className="grid gap-5 grid-cols-4" />
+          <SkelletonsList className="sm:grid gap-5 sm:grid-cols-2 lg:grid-cols-4" />
         ) : (
           <p>Ooops something wrong!</p>
         )}

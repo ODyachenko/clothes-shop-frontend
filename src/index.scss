@@ -6,6 +6,7 @@
 @import 'slick-carousel/slick/slick.scss';
 @import 'slick-carousel/slick/slick-theme.scss';
 @import './assets/scss/slick.scss';
+@import 'react-credit-cards-2/dist/lib/styles.scss';
 
 body {
   // font-family: 'Satoshi', sans-serif;
@@ -17,6 +18,17 @@ html {
   &.scroll-hidden {
     overflow: hidden;
   }
+}
+.rccs__name,
+.rccs__number,
+.rccs__expiry__value {
+  font-family: inherit;
+}
+.rccs__name {
+  font-size: 16px;
+}
+.rccs__number {
+  letter-spacing: 2px;
 }
 
 .container {

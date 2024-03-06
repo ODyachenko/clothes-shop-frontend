@@ -1,5 +1,5 @@
 import React from 'react';
-import { RegisterOptions, FieldErrors } from 'react-hook-form';
+import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
 export type WrapperType = {
   children: React.ReactNode;
@@ -66,20 +66,40 @@ export type LoginUserType = {
   password: string;
 };
 
+export type UserInfoType = {
+  id: number;
+  first_name: string;
+  last_name: string;
+  username: string;
+  email: string;
+  city: string;
+  state: string;
+  street_address: string;
+  zip_code: string;
+  number: string;
+  expiry: string;
+  cvc: string;
+  name: string;
+  focus: string;
+};
+
+export type ProfileHookFormType = {
+  register: UseFormRegister<UserInfoType>;
+  errors: FieldErrors<UserInfoType>;
+};
+
 export type ReviewFormType = {
   rating: number;
   text: string;
 };
 
-export type UserType = {
-  id: number;
-  first_name: string;
-  last_name: string;
-};
-
 export type ReviewType = {
   id: number;
-  user: UserType;
+  user: {
+    id: number;
+    first_name: string;
+    last_name: string;
+  };
   rating: number;
   text: string;
   create_at: string;

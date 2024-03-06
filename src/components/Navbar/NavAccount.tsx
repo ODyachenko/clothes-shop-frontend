@@ -1,12 +1,20 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks/hooks';
+import { setIsAuth } from '../../redux/slices/userSlice';
 
 const NavAccount: FC = () => {
+  const dispatch = useAppDispatch();
+
+  const onCLickLogout = () => {
+    if (window.confirm('Do you want to logout?')) {
+      localStorage.removeItem('token');
+      dispatch(setIsAuth(false));
+    }
+  };
+
   return (
-    <button
-      className="nav__account"
-      // to={`${isAuth ? '/account/profile' : '/login'}`}
-    >
+    <button className="nav__account">
       <svg
         width="21"
         height="21"
@@ -23,11 +31,13 @@ const NavAccount: FC = () => {
         <li className="nav__account-item">
           <Link to="/account/profile">Profile</Link>
         </li>
-        <li className="nav__account-item">
+        {/* <li className="nav__account-item">
           <Link to="/account/purchase-history">Purchase History</Link>
-        </li>
+        </li> */}
         <li className="nav__account-item">
-          <Link to="/">Logout</Link>
+          <span onClick={onCLickLogout} aria-label="button">
+            Logout
+          </span>
         </li>
       </ul>
     </button>

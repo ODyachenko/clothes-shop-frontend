@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CartList from '../components/Cart/CartList';
 import CartSummary from '../components/Cart/CartSummary';
 import Layout from '../components/Layout/Layout';
@@ -7,6 +8,12 @@ import { useAppSelector } from '../hooks/hooks';
 
 const Cart: FC = () => {
   const { cartList } = useAppSelector((state) => state.cart);
+  const { isAuth } = useAppSelector((state) => state.user);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    !isAuth && navigate('/login');
+  }, []);
 
   return (
     <Layout>

@@ -29,7 +29,7 @@ const LoginForm: FC = () => {
       }
       localStorage.setItem('token', response.data.auth_token);
       dispatch(setIsAuth(true));
-      navigate('/');
+      navigate(-1);
     } catch (error: any) {
       console.error(error.data.non_field_errors);
       setAuthErrors(error.data.non_field_errors);

@@ -5,11 +5,15 @@ import CardsList from '../Cards/CardsList';
 import Pagination from '../Pagination/Pagination';
 import Sorting from '../Sorting/Sorting';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { setProductsCount } from '../../redux/slices/productSlice';
+import {
+  setProductsCount,
+  setShowFilterList,
+} from '../../redux/slices/productSlice';
 import { createQueryObj } from '../../utils/createQueryObj';
 import { setDefaultState } from '../../redux/slices/filterSlice';
 import CardSkelleton from '../Cards/CardSkelleton';
 import SkelletonsList from '../Cards/SkelletonsList';
+import FilterBtn from '../../UI/FilterBtn';
 
 const Products: FC = () => {
   const filterObj = useAppSelector((state) => state.filter);
@@ -19,7 +23,9 @@ const Products: FC = () => {
   const [queryString, setQueryString] = useState<string>('');
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { data, isLoading, error } = useGetProductsQuery(queryString);
+  const { data, isLoading, error } = useGetProductsQuery(queryString, {
+    skip: !queryString,
+  });
 
   useEffect(() => {
     setQueryString(createQueryObj(filterObj));
@@ -37,17 +43,22 @@ const Products: FC = () => {
     }
   }, [data]);
 
+  const onClickFilter = () => {
+    dispatch(setShowFilterList(true));
+  };
+
   return (
     <main className="products w-full">
       <div className="products__inner flex items-center justify-between mb-5">
-        <h1 className="products__title font-bold text-2xl lg:text-3xl">
+        <h1 className="products__title hidden font-bold text-2xl sm:block lg:text-3xl">
           Men's Clothing
         </h1>
-        <div className="products__info flex items-center gap-3">
-          <span className="text-text-o text-sm sm:text-base">
+        <div className="products__info w-full flex items-center justify-between gap-3 sm:w-auto sm:justify-start">
+          <span className="hidden text-text-o text-sm sm:block sm:text-base">
             Showing {data?.results.length} of {data?.count}
           </span>
           <Sorting />
+          <FilterBtn handler={onClickFilter} />
         </div>
       </div>
       {error ? (

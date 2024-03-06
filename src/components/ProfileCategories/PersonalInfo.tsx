@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
+import { ProfileHookFormType } from '../../../@types';
+import { useAppSelector } from '../../hooks/hooks';
 
-const PersonalInfo: FC = () => {
+const PersonalInfo: FC<ProfileHookFormType> = ({ register, errors }) => {
+  const { currentUser } = useAppSelector((state) => state.user);
+
   return (
     <div className="border-b border-gray-900/10 pb-12">
       <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -18,11 +22,19 @@ const PersonalInfo: FC = () => {
           <div className="mt-2">
             <input
               type="text"
-              name="first-name"
+              defaultValue={currentUser.first_name}
+              {...register('first_name', {
+                minLength: { value: 2, message: 'Min length is 2' },
+                maxLength: { value: 30, message: 'Max length is 30' },
+              })}
               id="first-name"
-              autoComplete="given-name"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
             />
+            {errors['first_name'] && (
+              <span className="block text-red-500 pt-1">
+                {errors['first_name'].message}
+              </span>
+            )}
           </div>
         </div>
 
@@ -36,11 +48,19 @@ const PersonalInfo: FC = () => {
           <div className="mt-2">
             <input
               type="text"
-              name="last-name"
+              defaultValue={currentUser.last_name}
+              {...register('last_name', {
+                minLength: { value: 2, message: 'Min length is 2' },
+                maxLength: { value: 30, message: 'Max length is 30' },
+              })}
               id="last-name"
-              autoComplete="family-name"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
             />
+            {errors['last_name'] && (
+              <span className="block text-red-500 pt-1">
+                {errors['last_name'].message}
+              </span>
+            )}
           </div>
         </div>
 
@@ -54,10 +74,19 @@ const PersonalInfo: FC = () => {
           <div className="mt-2">
             <input
               type="text"
-              name="username"
+              defaultValue={currentUser.username}
+              {...register('username', {
+                minLength: { value: 4, message: 'Min length is 4' },
+                maxLength: { value: 30, message: 'Max length is 30' },
+              })}
               id="username"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
             />
+            {errors['username'] && (
+              <span className="block text-red-500 pt-1">
+                {errors['username'].message}
+              </span>
+            )}
           </div>
         </div>
 
@@ -71,11 +100,22 @@ const PersonalInfo: FC = () => {
           <div className="mt-2">
             <input
               id="email"
-              name="email"
+              defaultValue={currentUser.email}
+              {...register('email', {
+                pattern: {
+                  value: /^\S+@\S+$/i,
+                  message: 'Please enter valid email',
+                },
+              })}
               type="email"
               autoComplete="email"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
             />
+            {errors['email'] && (
+              <span className="block text-red-500 pt-1">
+                {errors['email'].message}
+              </span>
+            )}
           </div>
         </div>
       </div>

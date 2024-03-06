@@ -1,4 +1,5 @@
 import { FC, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { BeatLoader } from 'react-spinners';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { usePostToCartMutation } from '../../redux/API/cartAPI';
@@ -13,6 +14,7 @@ import ProductSizes from './ProductSizes';
 
 const ProductInfo: FC = () => {
   const { currentProduct } = useAppSelector((state) => state.product);
+  const { isAuth } = useAppSelector((state) => state.user);
   const { cartItem } = useAppSelector((state) => state.cart);
   const [createCartItem, { isLoading, error }] = usePostToCartMutation();
   const dispatch = useAppDispatch();
@@ -73,11 +75,15 @@ const ProductInfo: FC = () => {
           setState={setQuantity}
           maxValue={currentProduct.inventory}
         />
-        <Btn
-          handler={onClickHandler}
-          value={isLoading ? <BeatLoader color="#fff" /> : 'Add to Cart'}
-          className="w-full"
-        />
+        {isAuth ? (
+          <Btn
+            handler={onClickHandler}
+            value={isLoading ? <BeatLoader color="#fff" /> : 'Add to Cart'}
+            className="w-full"
+          />
+        ) : (
+          <Btn value={<Link to={'/login'}>Login</Link>} className="w-full" />
+        )}
       </div>
     </div>
   );

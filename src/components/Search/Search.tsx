@@ -9,7 +9,9 @@ import SearchList from './SearchList';
 const Search: FC = () => {
   const { search } = useAppSelector((state) => state.search);
   const debouncedValue = useDebounce(search, { wait: 500 });
-  const { data, isLoading, error } = useGetSearchProductsQuery(debouncedValue);
+  const { data, isLoading, error } = useGetSearchProductsQuery(debouncedValue, {
+    skip: !debouncedValue,
+  });
   const dispatch = useAppDispatch();
 
   const onChangeHandler = (value: string) => {
@@ -19,7 +21,7 @@ const Search: FC = () => {
   return (
     <div className="lg:w-full lg:relative">
       <SearchField value={search} onChange={onChangeHandler} />
-      {search && <SearchList list={data.results} />}
+      {data && <SearchList list={data.results} />}
     </div>
   );
 };

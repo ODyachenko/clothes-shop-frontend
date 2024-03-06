@@ -8,6 +8,7 @@ interface IProductState {
   currentProduct: ProductType;
   activeTab: number;
   productsCount: number;
+  showFilterList: boolean;
 }
 
 // Define the initial state using that type
@@ -31,6 +32,7 @@ const initialState: IProductState = {
   },
   productsCount: 0,
   activeTab: 1,
+  showFilterList: false,
 };
 
 export const productSlice = createSlice({
@@ -46,9 +48,12 @@ export const productSlice = createSlice({
     setProductsCount: (state, action: PayloadAction<number>) => {
       state.productsCount = action.payload;
     },
+    setShowFilterList: (state, action: PayloadAction<boolean>) => {
+      state.showFilterList = action.payload;
+    },
   },
 });
 
-export const { setProduct, setActiveTab, setProductsCount } =
+export const { setProduct, setActiveTab, setProductsCount, setShowFilterList } =
   productSlice.actions;
 export default productSlice.reducer;

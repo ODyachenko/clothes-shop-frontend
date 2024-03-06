@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
+import { ProfileHookFormType } from '../../../@types';
+import { useAppSelector } from '../../hooks/hooks';
 
-const ShipmantInfo: FC = () => {
+const ShipmantInfo: FC<ProfileHookFormType> = ({ register, errors }) => {
+  const { currentUser } = useAppSelector((state) => state.user);
+
   return (
     <div className="border-b border-gray-900/10 pb-12">
       <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -25,9 +29,11 @@ const ShipmantInfo: FC = () => {
               autoComplete="country-name"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-black sm:max-w-xs sm:text-sm sm:leading-6"
             >
-              <option>United States</option>
-              <option>Canada</option>
-              <option>Mexico</option>
+              <option>Ukraine</option>
+              <option>Germany</option>
+              <option>France</option>
+              <option>Italy</option>
+              <option>UK</option>
             </select>
           </div>
         </div>
@@ -42,11 +48,20 @@ const ShipmantInfo: FC = () => {
           <div className="mt-2">
             <input
               type="text"
-              name="street-address"
+              defaultValue={currentUser.street_address}
+              {...register('street_address', {
+                minLength: { value: 10, message: 'Min length is 10' },
+                maxLength: { value: 40, message: 'Max length is 40' },
+              })}
               id="street-address"
               autoComplete="street-address"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
             />
+            {errors['street_address'] && (
+              <span className="block text-red-500 pt-1">
+                {errors['street_address'].message}
+              </span>
+            )}
           </div>
         </div>
 
@@ -60,11 +75,20 @@ const ShipmantInfo: FC = () => {
           <div className="mt-2">
             <input
               type="text"
-              name="city"
+              defaultValue={currentUser.city}
+              {...register('city', {
+                minLength: { value: 4, message: 'Min length is 4' },
+                maxLength: { value: 30, message: 'Max length is 30' },
+              })}
               id="city"
               autoComplete="address-level2"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
             />
+            {errors['city'] && (
+              <span className="block text-red-500 pt-1">
+                {errors['city'].message}
+              </span>
+            )}
           </div>
         </div>
 
@@ -78,11 +102,20 @@ const ShipmantInfo: FC = () => {
           <div className="mt-2">
             <input
               type="text"
-              name="region"
+              defaultValue={currentUser.state}
+              {...register('state', {
+                minLength: { value: 3, message: 'Min length is 3' },
+                maxLength: { value: 30, message: 'Max length is 30' },
+              })}
               id="region"
               autoComplete="address-level1"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
             />
+            {errors['state'] && (
+              <span className="block text-red-500 pt-1">
+                {errors['state'].message}
+              </span>
+            )}
           </div>
         </div>
 
@@ -95,12 +128,23 @@ const ShipmantInfo: FC = () => {
           </label>
           <div className="mt-2">
             <input
-              type="text"
-              name="postal-code"
+              type="number"
+              defaultValue={currentUser.zip_code}
+              {...register('zip_code', {
+                pattern: {
+                  value: /^\d{5}$/,
+                  message: 'Please enter valid zip code',
+                },
+              })}
               id="postal-code"
               autoComplete="postal-code"
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
             />
+            {errors['zip_code'] && (
+              <span className="block text-red-500 pt-1">
+                {errors['zip_code'].message}
+              </span>
+            )}
           </div>
         </div>
       </div>
