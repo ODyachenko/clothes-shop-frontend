@@ -126,7 +126,7 @@ export type PriceValueType = {
 export type RangeSliderType = {
   min: number;
   max: number;
-  value: any;
+  value: PriceValueType;
   step: number;
   onChange: (obj: PriceValueType) => void;
 };

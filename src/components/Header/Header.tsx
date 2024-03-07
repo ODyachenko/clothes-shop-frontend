@@ -43,7 +43,11 @@ const Header: FC = () => {
             type="image/webp"
           />
           <source media="(min-width: 300px)" srcSet={headerImg_mob} />
-          <img className="mx-auto" src={headerImg_desc} alt="hero image" />
+          <img
+            className="mx-auto"
+            src={headerImg_desc}
+            alt="Fashionably dressed couple"
+          />
         </picture>
       </div>
     </header>

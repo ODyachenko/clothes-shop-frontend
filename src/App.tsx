@@ -23,7 +23,7 @@ function App() {
     if (localStorage.getItem('token')) {
       dispatch(setIsAuth(true));
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { ImageType } from '../../../@types';
 import { useAppSelector } from '../../hooks/hooks';
 import GalleryImg from './GalleryImg';
 
@@ -13,7 +14,7 @@ const GalleryList: FC<GalleryListProps> = ({ imgIdx, handler }) => {
   return (
     <div className="gallery__col flex gap-3 sm:flex-col">
       {images &&
-        images.map((image: any, index: any) => (
+        images.map((image: ImageType, index: number) => (
           <GalleryImg
             key={image.id}
             img={image.image}

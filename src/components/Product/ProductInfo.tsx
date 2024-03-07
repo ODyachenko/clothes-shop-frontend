@@ -30,7 +30,7 @@ const ProductInfo: FC = () => {
     return () => {
       dispatch(setIsAdded(false));
     };
-  }, [cartList, currentProduct.id]);
+  }, [cartList, currentProduct.id, dispatch]);
 
   const onClickHandler = () => {
     !Object.values(cartItem).some((value) => value === 0)

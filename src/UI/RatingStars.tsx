@@ -1,11 +1,13 @@
 import { FC } from 'react';
+import { FieldErrors, RegisterOptions } from 'react-hook-form';
 import ReactStars from 'react-stars';
+import { ReviewFormType } from '../../@types';
 
 type RatingProps = {
   state: number;
   handler: (value: number) => void;
-  register: any;
-  errors: any;
+  register: RegisterOptions<ReviewFormType, 'rating'> | any;
+  errors: FieldErrors<ReviewFormType>;
 };
 
 const RatingStars: FC<RatingProps> = ({ state, handler, register, errors }) => {
