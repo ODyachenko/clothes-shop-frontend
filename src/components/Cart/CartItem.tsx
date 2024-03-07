@@ -1,4 +1,5 @@
 import { FC, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/hooks';
 import {
   useDeleteCartItemMutation,
@@ -20,11 +21,16 @@ const CartItem: FC<any> = ({
   const { cartItem } = useAppSelector((state) => state.cart);
   const [productQuantity, setProductQuantity] = useState<number>(quantity);
   const btnRef = useRef(false);
+  const navigate = useNavigate();
 
   const onClickRemoveBtn = () => {
     if (window.confirm('Do you want remove this product?')) {
       deleteItem(id);
     }
+  };
+
+  const onClickNavigate = () => {
+    navigate(`/products/${productItem.id}`);
   };
 
   useEffect(() => {
@@ -41,7 +47,10 @@ const CartItem: FC<any> = ({
 
   return (
     <li className="cart__item py-4 last:pb-0 flex flex-wrap gap-4 sm:flex-nowrap">
-      <picture className="block mx-auto max-w-32">
+      <picture
+        className="block mx-auto max-w-32 cursor-pointer"
+        onClick={onClickNavigate}
+      >
         <img
           className="rounded-lg"
           src={productItem.images[0].image}
@@ -51,7 +60,10 @@ const CartItem: FC<any> = ({
       <div className="cart__item-info w-full">
         <div className="cart__body mb-4">
           <div className="cart__item-inner flex items-center justify-between gap-4 mb-3">
-            <h2 className="cart__item-name font-bold lg:text-xl">
+            <h2
+              className="cart__item-name font-bold cursor-pointer lg:text-xl"
+              onClick={onClickNavigate}
+            >
               {productItem.name}
             </h2>
             <RemoveBtn handler={onClickRemoveBtn} />
