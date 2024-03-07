@@ -25,6 +25,7 @@ export type BtnPropsType = {
   type?: 'button' | 'submit';
   state?: number;
   isLoading?: Boolean;
+  disabled?: boolean;
   handler?: () => void;
 };
 
@@ -143,6 +144,7 @@ export type FieldType = {
 export type SearchFieldType = {
   value: string;
   onChange: (e: string) => void;
+  onBlur: () => void;
 };
 
 export type SortingType = {

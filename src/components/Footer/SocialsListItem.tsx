@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { SocialType } from '../../../@types';
 
 const SocialsListItem: FC<SocialType> = ({ path, icon }) => {

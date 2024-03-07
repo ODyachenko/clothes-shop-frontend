@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { SearchFieldType } from '../../../@types';
 import './styles.scss';
 
-const SearchField: FC<SearchFieldType> = ({ value, onChange }) => {
+const SearchField: FC<SearchFieldType> = ({ value, onChange, onBlur }) => {
   return (
     <label className="search">
       <svg
@@ -22,6 +22,7 @@ const SearchField: FC<SearchFieldType> = ({ value, onChange }) => {
         type="search"
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onBlur={onBlur}
         placeholder="Search for products..."
       />
     </label>

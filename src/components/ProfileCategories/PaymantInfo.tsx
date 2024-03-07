@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import Cards from 'react-credit-cards-2';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { setCurrentUser } from '../../redux/slices/userSlice';
 import { ProfileHookFormType } from '../../../@types';
@@ -7,7 +6,6 @@ import { ProfileHookFormType } from '../../../@types';
 const PaymantInfo: FC<ProfileHookFormType> = ({ register, errors }) => {
   const { currentUser } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
-
   const handleInputFocus = (
     evt: React.FocusEvent<HTMLInputElement, Element>
   ) => {
@@ -59,6 +57,8 @@ const PaymantInfo: FC<ProfileHookFormType> = ({ register, errors }) => {
               </span>
             )}
           </label>
+        </div>
+        <div className="sm:col-span-3">
           <label className="block mb-4">
             <input
               type="tel"
@@ -99,15 +99,6 @@ const PaymantInfo: FC<ProfileHookFormType> = ({ register, errors }) => {
               </span>
             )}
           </label>
-        </div>
-        <div className="sm:col-span-3">
-          <Cards
-            number={currentUser.number}
-            expiry={currentUser.expiry}
-            cvc={currentUser.cvc}
-            name={currentUser.name}
-            focused={currentUser.focus}
-          />
         </div>
       </div>
     </div>

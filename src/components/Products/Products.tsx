@@ -25,6 +25,7 @@ const Products: FC = () => {
     skip: !queryString,
   });
 
+  // If you need filter products after change filter item add filterObj to useEffect dependecies
   useEffect(() => {
     setQueryString(createQueryObj(filterObj));
     navigate(`?${queryString}`);
@@ -33,7 +34,7 @@ const Products: FC = () => {
       // dispatch(setDefaultState());
       console.log('unmount');
     };
-  }, [isFilterApplied, queryString, ordering, page, filterObj, navigate]);
+  }, [isFilterApplied, queryString, ordering, page, navigate]);
 
   useEffect(() => {
     if (data) {

@@ -7,11 +7,13 @@ import { CartType } from '../../../@types';
 interface IProductState {
   cartList: Partial<CartType[]>;
   cartItem: CartType;
+  isAdded: boolean;
 }
 
 // Define the initial state using that type
 const initialState: IProductState = {
   cartList: [],
+  isAdded: false,
   cartItem: {
     productItemId: 0,
     size: 0,
@@ -47,6 +49,9 @@ export const cartSlice = createSlice({
     setCartItemInventory: (state, action: PayloadAction<number>) => {
       state.cartItem.inventory = action.payload;
     },
+    setIsAdded: (state, action: PayloadAction<boolean>) => {
+      state.isAdded = action.payload;
+    },
     resetCartItem: (state) => {
       state.cartItem = initialState.cartItem;
     },
@@ -61,6 +66,7 @@ export const {
   setCartItemPrice,
   setCartItemQuantity,
   setCartItemInventory,
+  setIsAdded,
   resetCartItem,
 } = cartSlice.actions;
 export default cartSlice.reducer;

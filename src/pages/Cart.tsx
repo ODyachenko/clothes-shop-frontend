@@ -12,8 +12,8 @@ const Cart: FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    !isAuth && navigate('/login');
-  }, []);
+    !isAuth ? navigate('/login') : navigate('/cart');
+  }, [isAuth, navigate]);
 
   return (
     <Layout>
@@ -27,9 +27,7 @@ const Cart: FC = () => {
             </div>
           </>
         ) : (
-          <h2 className="f text-xl font-bold text-center">
-            Your Cart is empty
-          </h2>
+          <h2 className="text-xl font-bold text-center">Your Cart is empty</h2>
         )}
       </Wrapper>
     </Layout>

@@ -14,7 +14,7 @@ const Profile: FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    !isAuth && navigate('/login');
+    !isAuth ? navigate('/login') : navigate('/account/profile');
   }, [isAuth, navigate]);
 
   useEffect(() => {

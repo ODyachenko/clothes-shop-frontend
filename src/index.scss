@@ -6,10 +6,8 @@
 @import 'slick-carousel/slick/slick.scss';
 @import 'slick-carousel/slick/slick-theme.scss';
 @import './assets/scss/slick.scss';
-@import 'react-credit-cards-2/dist/lib/styles.scss';
 
 body {
-  // font-family: 'Satoshi', sans-serif;
   font-family: 'Satoshi', sans-serif;
   font-size: 16px;
   line-height: 1.3;
@@ -18,6 +16,12 @@ html {
   &.scroll-hidden {
     overflow: hidden;
   }
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .rccs__name,
 .rccs__number,

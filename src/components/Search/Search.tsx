@@ -18,9 +18,17 @@ const Search: FC = () => {
     dispatch(setSearch(value));
   };
 
+  const onBlurHandler = () => {
+    dispatch(setSearch(''));
+  };
+
   return (
     <div className="lg:w-full lg:relative">
-      <SearchField value={search} onChange={onChangeHandler} />
+      <SearchField
+        value={search}
+        onChange={onChangeHandler}
+        onBlur={onBlurHandler}
+      />
       {data && <SearchList list={data.results} />}
     </div>
   );

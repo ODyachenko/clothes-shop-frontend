@@ -4,7 +4,7 @@ import { ReviewType } from '../../../@types';
 
 const ReviewsListItem: FC<ReviewType> = ({ user, rating, text, create_at }) => {
   return (
-    <li className="reviews__list-item review rounded-3xl border border-solid border-border-10 p-6">
+    <li className="reviews__list-item review overflow-auto rounded-3xl border border-solid border-border-10 p-6 md:h-[211px]">
       <Rating value={rating} className="mb-3" />
       <h3 className="review__author mb-3 font-bold">{`${user.first_name} ${user.last_name}`}</h3>
       <p className="review__text text-sm text-text-o mb-4 lg:text-base lg:mb-6">

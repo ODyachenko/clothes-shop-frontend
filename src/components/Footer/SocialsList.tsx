@@ -1,8 +1,8 @@
-import React from 'react';
-import { socialsList } from '../../data/socialsList';
+import { FC } from 'react';
 import SocialsListItem from './SocialsListItem';
+import { socialsList } from '../../data/socialsList';
 
-const SocialsList = () => {
+const SocialsList: FC = () => {
   return (
     <ul className="socials__list flex items-center gap-3 justify-center">
       {socialsList.map((social) => (
