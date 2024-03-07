@@ -31,13 +31,13 @@ type ReviewsSliderProps = {
 
 const ReviewsSlider: FC<ReviewsSliderProps> = ({ reviewsList }) => {
   return (
-    <ul className="reviews__list slider-container">
+    <div className="reviews__list slider-container">
       <Slider {...settings}>
         {reviewsList.map((review) => (
           <ReviewsListItem key={review.id} {...review} />
         ))}
       </Slider>
-    </ul>
+    </div>
   );
 };
 

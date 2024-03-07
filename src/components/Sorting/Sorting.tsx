@@ -16,7 +16,10 @@ const Sorting: FC = () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className=" bg-search-bg text-sm py-2 px-5 lg:px-6 lg:text-base inline-flex w-full justify-center items-center gap-x-1.5 rounded-3xl  hover:bg-gray-50">
+        <Menu.Button
+          className=" bg-search-bg text-sm py-2 px-5 lg:px-6 lg:text-base inline-flex w-full justify-center items-center gap-x-1.5 rounded-3xl  hover:bg-gray-50"
+          aria-label="Sorting list"
+        >
           {sortingList[selected].value}
           <svg
             width="12"

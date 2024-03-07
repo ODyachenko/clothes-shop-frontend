@@ -6,7 +6,7 @@ type RemoveBtnProps = {
 
 const RemoveBtn: FC<RemoveBtnProps> = ({ handler }) => {
   return (
-    <button className="remove" onClick={handler}>
+    <button className="remove" onClick={handler} aria-label="Delete button">
       <svg
         width="18"
         height="20"

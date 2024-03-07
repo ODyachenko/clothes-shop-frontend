@@ -10,6 +10,7 @@ const FilterBtn: FC<FilterBtnType> = ({ handler, className }) => {
     <button
       onClick={handler}
       className={`w-12 h-12 rounded-3xl flex items-center justify-center transition-all hover:bg-search-bg ${className}`}
+      aria-label="Filter button"
     >
       <svg
         width="24"

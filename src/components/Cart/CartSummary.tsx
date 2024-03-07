@@ -13,7 +13,7 @@ const CartSummary: FC = () => {
       <h2 className="summary__title text-xl font-bold mb-4 lg:text-2xl lg:mb-6">
         Order Summary
       </h2>
-      <ul className="summary__list border-b border-solid border-border-10 mb-5 pb-5">
+      <div className="summary__list border-b border-solid border-border-10 mb-5 pb-5">
         <div className="summary__item flex items-center justify-between mb-5 lg:text-xl">
           <span className="text-text-o">Subtotal</span>
           <strong className="font-bold">${total.toFixed(2)}</strong>
@@ -22,7 +22,7 @@ const CartSummary: FC = () => {
           <span className="text-text-o">Delivery Fee</span>
           <strong className="font-bold">$16</strong>
         </div>
-      </ul>
+      </div>
       <div className="summary__footer">
         <div className="summary__item flex items-center justify-between mb-5 lg:text-xl">
           <span className="text-text-o">Total</span>

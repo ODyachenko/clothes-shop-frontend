@@ -7,7 +7,11 @@ type CloseBtnProps = {
 
 const CloseBtn: FC<CloseBtnProps> = ({ className, handler }) => {
   return (
-    <button className={`${className}`} onClick={handler}>
+    <button
+      className={`${className}`}
+      onClick={handler}
+      aria-label="Close button"
+    >
       <svg
         width="16"
         height="17"

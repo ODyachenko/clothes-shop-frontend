@@ -4,7 +4,9 @@ import HeaderStats from './HeaderStats';
 import Btn from '../../UI/Btn';
 
 import headerImg_mob from '../../assets/img/header_mob.png';
+import headerImg_mob_webp from '../../assets/img/header_mob.webp';
 import headerImg_desc from '../../assets/img/header.png';
+import headerImg_desc_webp from '../../assets/img/header.webp';
 
 const Header: FC = () => {
   return (
@@ -29,7 +31,17 @@ const Header: FC = () => {
           <HeaderStats />
         </div>
         <picture className="max-w-80 self-end shrink-0 md:max-w-96 lg:max-w-full">
+          <source
+            media="(min-width: 1024px)"
+            srcSet={headerImg_desc_webp}
+            type="image/webp"
+          />
           <source media="(min-width: 1024px)" srcSet={headerImg_desc} />
+          <source
+            media="(min-width: 300px)"
+            srcSet={headerImg_mob_webp}
+            type="image/webp"
+          />
           <source media="(min-width: 300px)" srcSet={headerImg_mob} />
           <img className="mx-auto" src={headerImg_desc} alt="hero image" />
         </picture>

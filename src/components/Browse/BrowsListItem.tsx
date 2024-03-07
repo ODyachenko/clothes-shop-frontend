@@ -22,7 +22,7 @@ const BrowsListItem: FC<BannerType> = ({ id, name, path }) => {
         {name}
       </strong>
       <picture>
-        <img src={path} alt={name} />
+        <img src={path} alt={`${name} card`} loading="lazy" />
       </picture>
     </li>
   );

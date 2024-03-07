@@ -10,7 +10,15 @@ const CardsItem: FC<ProductType> = ({ id, name, rating, price, images }) => {
       className="cards-list__item card cursor-pointer rounded-2xl hover:shadow-card-shadow lg:transition-all lg:duration-300"
     >
       <div className="card__header shadow-card-sh mb-4 p-1 rounded-2xl ">
-        {images && <img className="mx-auto" src={images[0].image} alt={name} />}
+        {images && (
+          <img
+            className="mx-auto"
+            src={images[0].image}
+            alt={name}
+            width={475}
+            height={594}
+          />
+        )}
       </div>
       <div className="card__footer lg:px-2 lg:pb-3">
         <h3 className="card__title font-bold mb-2 lg:text-xl">{name}</h3>

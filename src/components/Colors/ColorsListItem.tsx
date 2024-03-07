@@ -24,6 +24,7 @@ const ColorsListItem: FC<ColorsListItemProps> = ({
         onClick={() => onClickHandler(id)}
         className={`w-10 h-10 rounded-full `}
         style={{ backgroundColor: value }}
+        aria-label={`${value} color button`}
       />
     </li>
   );
