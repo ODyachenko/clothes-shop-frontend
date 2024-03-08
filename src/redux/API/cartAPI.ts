@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { CartType } from '../../../@types';
-import { RootState } from '../store';
 
 export const cartAPI = createApi({
   reducerPath: 'cartAPI',

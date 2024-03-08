@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useGetOnSaleProductsQuery } from '../../redux/API/productsAPI';
 import Advertising from '../Advertising/Advertising';
 
 const Recommendations: FC = () => {
-  const { data, isLoading, error } = useGetOnSaleProductsQuery('limit=4');
+  const { data } = useGetOnSaleProductsQuery('limit=4');
 
   return data ? (
     <Advertising

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { useGetCartQuery } from '../../redux/API/cartAPI';
@@ -16,13 +16,13 @@ const Nav: FC = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
-  const { data, isLoading, error } = useGetCartQuery('', {
+  const { data } = useGetCartQuery('', {
     skip: !isAuth,
   });
 
   useEffect(() => {
     data && dispatch(setCartList(data.results));
-  }, [data]);
+  }, [data, dispatch]);
 
   useEffect(() => {
     isActive

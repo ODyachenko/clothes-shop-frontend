@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useDebounce } from 'ahooks';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { useGetSearchProductsQuery } from '../../redux/API/searchAPI';
@@ -9,7 +9,7 @@ import SearchList from './SearchList';
 const Search: FC = () => {
   const { search } = useAppSelector((state) => state.search);
   const debouncedValue = useDebounce(search, { wait: 500 });
-  const { data, isLoading, error } = useGetSearchProductsQuery(debouncedValue, {
+  const { data } = useGetSearchProductsQuery(debouncedValue, {
     skip: !debouncedValue,
   });
   const dispatch = useAppDispatch();

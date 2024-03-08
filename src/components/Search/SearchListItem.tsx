@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SearchListType } from '../../../@types';
 import { useAppDispatch } from '../../hooks/hooks';
 import { setSearch } from '../../redux/slices/searchSlice';

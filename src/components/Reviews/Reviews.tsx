@@ -4,7 +4,7 @@ import ReviewsSlider from './ReviewsSlider';
 import { useGetTopReviewsQuery } from '../../redux/API/reviewsAPI';
 
 const Reviews: FC = () => {
-  const { data, isLoading, error } = useGetTopReviewsQuery('');
+  const { data } = useGetTopReviewsQuery('');
 
   return data ? (
     <Wrapper className="reviews">
