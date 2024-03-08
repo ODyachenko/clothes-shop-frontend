@@ -2,28 +2,29 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const productsAPI = createApi({
   reducerPath: 'productsAPI',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://127.0.0.1:8000/api/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
   tagTypes: ['posts', 'post'],
   endpoints: (builder) => ({
     getCategories: builder.query({
-      query: () => `categories`,
+      query: () => `api/categories`,
     }),
     getColors: builder.query({
-      query: () => `colors`,
+      query: () => `api/colors`,
     }),
     getProducts: builder.query({
-      query: (query) => `products?${query}`,
+      query: (query) => `api/products?${query}`,
     }),
     getProductById: builder.query<string, string>({
-      query: (id) => `products/${id}`,
+      query: (id) => `api/products/${id}`,
       providesTags: ['post'],
     }),
     getNewProducts: builder.query<any | undefined, string>({
       query: (params) =>
-        `products?ordering=-create_at${params ? `&${params}` : ''}`,
+        `api/products?ordering=-create_at${params ? `&${params}` : ''}`,
     }),
     getOnSaleProducts: builder.query<any | undefined, string>({
-      query: (params) => `products?on_sale=true${params ? `&${params}` : ''}`,
+      query: (params) =>
+        `api/products?on_sale=true${params ? `&${params}` : ''}`,
     }),
   }),
 });

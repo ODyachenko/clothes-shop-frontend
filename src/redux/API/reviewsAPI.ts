@@ -4,7 +4,7 @@ export const reviewsAPI = createApi({
   reducerPath: 'reviewsAPI',
   tagTypes: ['reviews'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://127.0.0.1:8000/api/',
+    baseUrl: process.env.REACT_APP_BASE_URL,
     prepareHeaders: (headers) => {
       const token = localStorage.getItem('token');
 
@@ -21,10 +21,10 @@ export const reviewsAPI = createApi({
       providesTags: ['reviews'],
     }),
     getReviewsById: builder.query<string, string>({
-      query: (id) => `reviews/${id}`,
+      query: (id) => `api/reviews/${id}`,
     }),
     getTopReviews: builder.query({
-      query: () => `reviews?rating=5`,
+      query: () => `api/reviews?rating=5`,
     }),
     postReview: builder.mutation({
       query: (body) => ({

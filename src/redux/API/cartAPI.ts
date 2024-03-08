@@ -6,7 +6,7 @@ export const cartAPI = createApi({
   reducerPath: 'cartAPI',
   tagTypes: ['cart'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://127.0.0.1:8000/api/',
+    baseUrl: process.env.REACT_APP_BASE_URL,
     prepareHeaders: (headers) => {
       const token = localStorage.getItem('token');
 
@@ -19,7 +19,7 @@ export const cartAPI = createApi({
   }),
   endpoints: (builder) => ({
     getCart: builder.query({
-      query: () => `cart`,
+      query: () => `api/cart`,
       providesTags: ['cart'],
     }),
     postToCart: builder.mutation({
@@ -32,7 +32,7 @@ export const cartAPI = createApi({
     }),
     updateCartQuantity: builder.mutation({
       query: ({ id, body }) => ({
-        url: `cart/${id}`,
+        url: `api/cart/${id}`,
         method: 'PATCH',
         body: body,
       }),
@@ -40,7 +40,7 @@ export const cartAPI = createApi({
     }),
     deleteCartItem: builder.mutation({
       query: (id: number) => ({
-        url: `cart/${id}`,
+        url: `api/cart/${id}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['cart'],
