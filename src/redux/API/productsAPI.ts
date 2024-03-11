@@ -4,9 +4,9 @@ export const productsAPI = createApi({
   reducerPath: 'productsAPI',
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL,
-    headers: {
-      'Access-Control-Allow-Origin': 'no-cors',
-      'content-type': 'aplication/json',
+    prepareHeaders: (headers) => {
+      headers.set('Access-Control-Allow-Origin', `no-cors`);
+      return headers;
     },
   }),
   tagTypes: ['posts', 'post'],
