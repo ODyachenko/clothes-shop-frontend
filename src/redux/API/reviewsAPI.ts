@@ -17,7 +17,7 @@ export const reviewsAPI = createApi({
   }),
   endpoints: (builder) => ({
     getReviews: builder.query({
-      query: () => `reviews`,
+      query: () => `api/reviews`,
       providesTags: ['reviews'],
     }),
     getReviewsById: builder.query<string, string>({
@@ -28,7 +28,7 @@ export const reviewsAPI = createApi({
     }),
     postReview: builder.mutation({
       query: (body) => ({
-        url: `reviews`,
+        url: `api/reviews`,
         method: 'POST',
         body,
       }),
