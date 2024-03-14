@@ -49,6 +49,8 @@ const ProductReviews: FC = () => {
               className="lg:w-40 mx-auto"
             />
           )}
+          {showReviewForm && <ReviewForm />}
+          <ReviewsList reviews={reviews} />
         </>
       )}
     </>
