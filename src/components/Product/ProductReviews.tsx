@@ -25,7 +25,6 @@ const ProductReviews: FC = () => {
               All Reviews ({reviews ? reviews.length : 0})
             </h3>
             <div className="product__reviews-actions w-full flex items-center justify-between gap-3 sm:w-auto">
-              <Sorting />
               {isAuth && (
                 <Btn
                   value={showReviewForm ? 'Hide form' : 'Write a Review'}
@@ -39,9 +38,18 @@ const ProductReviews: FC = () => {
           <ReviewsList reviews={reviews} />
         </div>
       ) : (
-        <p className="font-bold text-center md:text-lg lg:text-2xl">
-          We don't have review for this product
-        </p>
+        <>
+          <p className="font-bold text-center md:text-lg lg:text-2xl mb-5">
+            We don't have review for this product
+          </p>
+          {isAuth && (
+            <Btn
+              value={showReviewForm ? 'Hide form' : 'Write a Review'}
+              handler={onClickReviewBtn}
+              className="lg:w-40 mx-auto"
+            />
+          )}
+        </>
       )}
     </>
   );

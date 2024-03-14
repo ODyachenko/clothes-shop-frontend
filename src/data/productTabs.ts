@@ -5,7 +5,7 @@ export const productTabs = [
   },
   {
     id: 2,
-    value: 'Rating & Reviews',
+    value: 'Reviews',
   },
   {
     id: 3,

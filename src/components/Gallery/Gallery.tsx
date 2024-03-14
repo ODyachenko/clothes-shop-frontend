@@ -12,7 +12,7 @@ const Gallery: FC = () => {
       <picture className="gallery__img rounded-3xl sm:flex sm:items-center sm:w-full">
         {currentProduct.images && (
           <img
-            className='className="rounded-3xl mx-auto"'
+            className="rounded-3xl mx-auto"
             src={currentProduct.images[imgIdx]?.image}
             alt=""
           />
