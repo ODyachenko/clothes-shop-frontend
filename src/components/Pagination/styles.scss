@@ -1,6 +1,7 @@
 .pagination {
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 
@@ -8,6 +9,10 @@
   margin: 0 auto;
 
   & li {
+    &:first-child,
+    &:last-child {
+      display: none;
+    }
     & a {
       display: block;
       color: rgba(0, 0, 0, 0.5);
@@ -44,6 +49,17 @@
     &.selected a {
       color: #000;
       background-color: rgba(0, 0, 0, 0.06);
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .pagination {
+    & li {
+      &:first-child,
+      &:last-child {
+        display: block;
+      }
     }
   }
 }

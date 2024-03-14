@@ -26,7 +26,7 @@ const Sidebar: FC = () => {
     <aside
       className={`sidebar flex-shrink-0 bg-white border border-solid border-border-10 rounded-2xl p-5 lg:px-6 lg:pb-8 fixed ${
         showFilterList ? 'bottom-0' : '-bottom-full'
-      } left-0 right-0 z-20 transition-all duration-700 overflow-auto max-h-sidebar-h lg:static lg:max-h-none lg:max-w-sidebar-w`}
+      } left-0 right-0 z-20 transition-all duration-700 ease-out overflow-auto max-h-sidebar-h lg:static lg:max-h-none lg:max-w-sidebar-w`}
     >
       <CloseBtn className="ml-auto mb-2 lg:hidden" handler={onClickCloseBtn} />
       <Filters />

@@ -7,9 +7,9 @@ const CardsItem: FC<ProductType> = ({ id, name, rating, price, images }) => {
   return (
     <Link
       to={`/products/${id}`}
-      className="cards-list__item card cursor-pointer rounded-2xl hover:shadow-card-shadow lg:transition-all lg:duration-300"
+      className="cards-list__item card block max-w-80 cursor-pointer rounded-2xl mx-auto mb-5 min-[480px]:mb-0"
     >
-      <div className="card__header shadow-card-sh mb-4 p-1 rounded-2xl ">
+      <div className="card__header shadow-card-sh mb-4 p-1 rounded-2xl hover:shadow-none lg:transition-all lg:duration-300">
         {images && (
           <img
             className="mx-auto"

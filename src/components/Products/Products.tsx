@@ -56,8 +56,8 @@ const Products: FC = () => {
           <span className="hidden text-text-o text-sm sm:block sm:text-base">
             Showing {data?.results.length} of {data?.count}
           </span>
-          <Sorting />
           <FilterBtn handler={onClickFilter} className={'lg:hidden'} />
+          <Sorting />
         </div>
       </div>
       {error ? (
@@ -67,7 +67,7 @@ const Products: FC = () => {
       ) : data ? (
         <CardsList
           productsList={data.results}
-          className="grid gap-5 min-[480px]:grid-cols-2 lg:grid-cols-3"
+          className="min-[480px]:grid gap-5 min-[480px]:grid-cols-2 lg:grid-cols-3"
           element={<Pagination />}
         />
       ) : null}
